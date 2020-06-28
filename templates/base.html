@@ -11,21 +11,31 @@
         <!--Import materialize.css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <style>
-          #music {
-            background-image: url("../static/img/music.png");
-            background-repeat: no-repeat;
-            height: 100vh;
-            background-size: cover;
+          :root {
+          --space-cadet: hsla(229, 32%, 26%, 1);
+          --independence: hsla(218, 32%, 46%, 1);
+          --silver: hsla(180, 1%, 75%, 1);
+          --white: hsla(0, 0%, 100%, 1);
+          --mandarin: hsla(18, 65%, 94%, 1);
           }
-          #programming {
-            background-image: url("../static/img/programming.png");
-            background-repeat: no-repeat;
-            height: 100vh;
-            background-size: cover;
+          .vcenter-wrapper {
+            position: relative;
           }
+          .vcenter {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+          }
+          .title-text {
+            color: var(--silver);
+          }
+          .intro-background {
+            background-color: var(--space-cadet);
+          }          
         </style>
     </head>
-    <body>
+    <body style="height:100%">
         {% block content %}{% endblock %}
         <!--JavaScript at end of body for optimized loading-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
