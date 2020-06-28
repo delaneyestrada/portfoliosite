@@ -1,18 +1,16 @@
-gsap.registerPlugin(MotionPathPlugin, TextPlugin, ScrollToPlugin, ScrollTrigger, CSSRulePlugin);
+gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
 
 
-gsap.fromTo("#title", {opacity: 0}, {duration:2, opacity:1.0});
+gsap.fromTo("#title-container", {opacity: 0}, {duration:2, opacity:1.0});
+gsap.to("#music-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
+gsap.to("#programmer-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
 
-function hover(side) {
-	sideElement = document.getElementById(side);
-	console.log(side);
-	console.log(sideElement);
-	sideElement.addEventListener("mouseover", function(){
-			gsap.to("#" + side, {duration: .5, border: "solid white"});
-	});
-	sideElement.addEventListener("mouseout", function(){
-			gsap.to("#" + side, {duration: .5, border: "none"});
-	});
-};
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems);
+    for (i=0;i<elems.length;i++){
+	M.Tooltip.getInstance(elems[i]).open();
+}
+  });
 
-hover("left-side");
+
