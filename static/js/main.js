@@ -1,7 +1,7 @@
-gsap.registerPlugin(MotionPathPlugin, TextPlugin, ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(MotionPathPlugin, TextPlugin, ScrollToPlugin, ScrollTrigger, CSSRulePlugin);
 
 
-gsap.fromTo(".title", {opacity: 0}, {duration:5, opacity:1.0});
+gsap.fromTo("#title", {opacity: 0}, {duration:2, opacity:1.0});
 
 function hover(side) {
 	sideElement = document.getElementById(side);
