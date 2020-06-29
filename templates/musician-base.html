@@ -83,6 +83,21 @@
     .social-button:active {
         background-color: var(--mandarin);
     }
+    .embed-container { 
+        position: relative; 
+        padding-bottom: 56.25%; 
+        height: 0; 
+        overflow: hidden; 
+        max-width: 100%; 
+        } 
+    .embed-container iframe { 
+        position: absolute;
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        }
+</style>
     </style>
 </head>
 
@@ -97,15 +112,34 @@
         <nav id="music-nav">
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down">
-                    <li class="active"><a href="./musician">Bio</a></li>
-                    <li><a href="#">Media</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li id="nav-bio-btn"><a href="./musician">Bio</a></li>
+                    <li id="nav-media-btn"><a href="/media">Media</a></li>
+                    <li id="nav-tour-btn"><a href="/tour">Tour</a></li>
+
         </ul>
         <a class=" dropdown-trigger brand-logo right" href="#!" data-target="dropdown1" style="font-size: 1.25rem">Music Page<i class="material-icons right">arrow_drop_down</i></a>
             </div>
         </nav>
+    <div class="content">
     {% block content %}{% endblock %}
-    {% block footer %}{% endblock %}
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col s6 offset-s4">
+              <a href="https://www.facebook.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+                <i class = "fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/dillon_estrada/" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+              <i class = "fa fa-instagram"></i></a>
+              <a href="https://twitter.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+                <i class = "fa fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+                  <i class = "fa fa-youtube"></i></a>
+                  <a href="#" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button"><i class="fa fa-envelope"></i></a>
+              </div>
+          </div>
+          </div>
+      </footer>
     </div>
         
     <!--JavaScript at end of body for optimized loading-->

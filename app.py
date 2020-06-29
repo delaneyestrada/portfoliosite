@@ -17,6 +17,9 @@ def programmer():
 def musician():
 	return render_template('music.html')
 
+@app.route('/media')
+def media():
+	return render_template('musician-media.html')
 
 if __name__ == '__main__':
     server.serve()

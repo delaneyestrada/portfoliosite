@@ -12,6 +12,7 @@ if (window.location.pathname=='/') {
 	backgroundOnHover(musician, "id");
 	backgroundOnHover(programmer, "id");
 } else if(window.location.pathname=='/musician'){
+	$('#nav-bio-btn').addClass("active");
 	$('.animate-link').each(function(){
 		$(this).hover(function(){
 		gsap.to(($(this)), {duration: .5, backgroundColor: "black"});
@@ -22,6 +23,10 @@ if (window.location.pathname=='/') {
 	});
 	gsap.to(".animate-link", {duration: 2, textShadow: "2px 2px 3px hsla(229, 32%, 26%, 1)", repeat: -1, yoyo: "true"});
 });
+} else if(window.location.pathname=='/media'){
+	$('#nav-media-btn').addClass("active");
+} else if(window.location.pathname=='/tour'){
+	$('#nav-tour-btn').addClass("active");
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,6 +44,10 @@ $(document).ready(function(){
 	if($(".slider")[0]){
 		$('.slider').slider();
 	};
+	if($(".collapsible")[0]){
+		$('.collapsible').collapsible();
+	};
+	gsap.fromTo('.content', {opacity: 0}, {duration: .7, ease: "circ.in", opacity: 1});
 });
 
 function backgroundOnHover(element, type)  {
