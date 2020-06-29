@@ -1,39 +1,76 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row" style="height:100%;margin:0">
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="/">Home</a></li>
-  <li class="divider"></li>
-  <li class="active"><a href="#!">Music</a></li>
-  <li><a href="#!">Programming</a></li>
-</ul>
-<nav id="music-nav">
-  <div class="nav-wrapper">
-    <ul class="hide-on-med-and-down">
-      <li class="active"><a href="./musician">Bio</a></li>
-      <li><a href="#">Media</a></li>
-      <li><a href="#"">Contact</a></li>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/">Home</a></li>
+        <li class="divider"></li>
+        <li class="active"><a href="#!">Music</a></li>
+        <li><a href="#!">Programming</a></li>
     </ul>
-    <a class="dropdown-trigger brand-logo right" href="#!" data-target="dropdown1" style="font-size: 1.25rem">Music Page<i class="material-icons right">arrow_drop_down</i></a>
-  </div>
-</nav>
-<div class="col s6 offset-s3">
-<p class="flow-text white-text">Dillon Estrada is a touring drummer specializing in studio and live performances. Dillon has enjoyed playing for a wide variety of artists and bands around West Texas and the DFW metroplex including Shotgun Rider, Clayton Landua, Koe Wetzel, Randall King, and Gary Kyle.
-
-A Seminole, TX native, Dillon discovered his love for music at an early age, and began performing during church worship services. Throughout his high school years, Dillon sharpened his skills in jazz, symphonic, and marching bands, while also being enrolled in private drum set lessons at South Plains College.
-
-During his time at South Plains College, Dillon expanded his horizons by hooking up with well-known local and regional bands spanning genres from Stevie Ray Vaughan style blues, Texas country, hard rock, and everything inbetween.</p>
+    <nav id="music-nav">
+        <div class="nav-wrapper">
+            <ul class="hide-on-med-and-down">
+                <li class="active"><a href="./musician">Bio</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#"">Contact</a></li>
+    </ul>
+    <a class=" dropdown-trigger brand-logo right" href="#!" data-target="dropdown1" style="font-size: 1.25rem">Music Page<i class="material-icons right">arrow_drop_down</i></a>
+        </div>
+    </nav>
+    <div class="col s4 offset-s2">
+        <div class="slider" style="margin-top: 7px">
+            <ul class="slides">
+                <li>
+                    <img src="{{ url_for('static', filename='/img/dpic1.jpg') }}">
+                    <!--
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div> -->
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='/img/dpic2.jpg') }}">
+                    <!--
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>-->
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='/img/dpic3.jpg') }}">
+                    <!--
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div> -->
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='/img/dpic4.jpg') }}">
+                    <!--
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="card-panel" id="bio-panel">
+            <p class="white-text">Dillon Estrada is a touring drummer specializing in studio and live performances. He currently resides in the Austin, TX area and holds a degree from the well-renowned South Plains College Commercial Music program.
+            </p>
+            <p class="white-text" style="margin-bottom:8">
+                Dillon is currently on the road with long-time Texas Country favorite <a href="http://www.kylepark.com/index.html" target="_blank" class="animate-link">Kyle Park</a> and has had the opportunity to work with artists such as:</p>
+            <ul id="artist-list" class="white-text" style="margin-top:0">
+                <li class="artist"><a href="https://www.facebook.com/therealshotgunrider/" target="_blank" class="animate-link">Shotgun Rider</a></li>
+                <li class="artist"><a href="https://www.facebook.com/randallkingband" target="_blank" class="animate-link">Randall King</a></li>
+                <li class="artist"><a href="https://www.facebook.com/KoeWetzelMusic/" target="_blank" class="animate-link">Koe Wetzel</a></li>
+                <li class="artist"><a href="https://www.facebook.com/Dylan-Wheeler-520767778410855" target="_blank" class="animate-link">Dylan Wheeler</a></li>
+                <li class="artist"><a href="https://www.facebook.com/kaitlinbutts" target="_blank" class="animate-link">Kaitlin Butts</a></li>
+                <li>and many more.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 </div>
-<!-- <div class="row" style="height:50%">
-	<div class="col s12">
-	<div class="carousel">
-    <a class="carousel-item" href="#one!"><img class="responsive-img" src="{{ url_for('static', filename='/img/dpic1.jpg') }}"></a>
-    <a class="carousel-item" href="#two!"><img class="responsive-img" src="{{ url_for('static', filename='/img/dpic2.jpg') }}"></a>
-    <a class="carousel-item" href="#three!"><img class="responsive-img" src="{{ url_for('static', filename='/img/dpic3.jpg') }}"></a>
-    <a class="carousel-item" href="#four!"><img class="responsive-img" src="{{ url_for('static', filename='/img/dpic4.jpg') }}"></a>
-  </div>
-</div>
-</div>*-->
-        
 {% endblock %}
