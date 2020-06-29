@@ -9,8 +9,6 @@ server = Server(app.wsgi_app)
 def home():
 	return render_template('index.html', title="Home")
 
-# future routes
-
 @app.route('/programmer')
 def programmer():
 	return render_template('programming.html')
