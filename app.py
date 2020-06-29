@@ -10,15 +10,15 @@ def home():
 	return render_template('index.html', title="Home")
 
 # future routes
-"""
+
 @app.route('/programmer')
 def programmer():
-	return render_template('')
+	return render_template('programming.html')
 
 @app.route('/musician')
 def musician():
-	return render_template('')
-"""
+	return render_template('music.html')
+
 
 if __name__ == '__main__':
     server.serve()
