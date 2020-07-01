@@ -1,6 +1,8 @@
 gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
 
 if (window.location.pathname=='/') {
+	var background = "index"
+	/* gsap animations */
 	gsap.fromTo("#title-container", {opacity: 0}, {duration:2, opacity:1.0});
 	gsap.to("#music-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
 	gsap.to("#programmer-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
@@ -12,6 +14,7 @@ if (window.location.pathname=='/') {
 	backgroundOnHover(musician, "id");
 	backgroundOnHover(programmer, "id");
 } else if(window.location.pathname=='/musician'){
+	background = "musician"
 	$('#nav-bio-btn').addClass("active");
 	$('.animate-link').each(function(){
 		$(this).hover(function(){
@@ -24,9 +27,18 @@ if (window.location.pathname=='/') {
 	gsap.to(".animate-link", {duration: 2, textShadow: "2px 2px 3px hsla(229, 32%, 26%, 1)", repeat: -1, yoyo: "true"});
 });
 } else if(window.location.pathname=='/media'){
+	background = "musician"
 	$('#nav-media-btn').addClass("active");
-} else if(window.location.pathname=='/tour'){
-	$('#nav-tour-btn').addClass("active");
+}
+
+/* load musician particle.js background */
+if (background == "musician") {
+	/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+	particlesJS.load('particles-js', './static/assets/music-particles.json')
+};
+if (background == "index") {
+	/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+	particlesJS.load('particles-js', './static/assets/particles.json')
 };
 
 document.addEventListener('DOMContentLoaded', function() {
