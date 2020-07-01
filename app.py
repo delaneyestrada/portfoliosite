@@ -9,7 +9,7 @@ server = Server(app.wsgi_app)
 def home():
 	return render_template('index.html', title="Home")
 
-@app.route('/programmer')
+@app.route('/developer')
 def programmer():
 	return render_template('programming.html')
 

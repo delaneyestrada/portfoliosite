@@ -1,6 +1,6 @@
 gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
 
-if (window.location.pathname=='/') {
+if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	var background = "index"
 	/* gsap animations */
 	gsap.fromTo("#title-container", {opacity: 0}, {duration:2, opacity:1.0});
@@ -16,6 +16,7 @@ if (window.location.pathname=='/') {
 } else if(window.location.pathname=='/musician'){
 	background = "musician"
 	$('#nav-bio-btn').addClass("active");
+	gsap.to(".animate-link", {duration: 2, textShadow: "1px 1px 5px #EF8354", repeat: -1, yoyo: "true"});
 	$('.animate-link').each(function(){
 		$(this).hover(function(){
 		gsap.to(($(this)), {duration: .5, backgroundColor: "black"});
@@ -24,7 +25,6 @@ if (window.location.pathname=='/') {
 		
 		gsap.to(($(this)), {duration: .5, backgroundColor: "transparent"});
 	});
-	gsap.to(".animate-link", {duration: 2, textShadow: "2px 2px 3px hsla(229, 32%, 26%, 1)", repeat: -1, yoyo: "true"});
 });
 } else if(window.location.pathname=='/media'){
 	background = "musician"

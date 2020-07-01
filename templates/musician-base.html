@@ -110,6 +110,10 @@
     .collapsible-body {
         background-color: var(--space-cadet);
     }
+    nav .brand-logo {
+        height: inherit;
+        padding: 3px;
+    }
 </style>
 </head>
 
@@ -121,16 +125,17 @@
             <li><a href="/">Home</a></li>
             <li class="divider"></li>
             <li class="active"><a href="#!">Music</a></li>
-            <li><a href="#!">Programming</a></li>
+            <li><a href="/developer">Development</a></li>
         </ul>
         <nav id="music-nav">
+            <img src="{{ url_for('static', filename='assets/logo.svg') }}" class="brand-logo center">
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down">
                     <li id="nav-bio-btn"><a href="./musician">Bio</a></li>
                     <li id="nav-media-btn"><a href="/media">Media</a></li>
 
         </ul>
-        <a class=" dropdown-trigger brand-logo right" href="#!" data-target="dropdown1" style="font-size: 1.25rem">Music Page<i class="material-icons right">arrow_drop_down</i></a>
+        <a class=" dropdown-trigger right" href="#!" data-target="dropdown1" style="font-size: 1.25rem">Music Page<i class="material-icons right">arrow_drop_down</i></a>
             </div>
         </nav>
     <div class="content">
