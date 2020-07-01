@@ -18,6 +18,7 @@
         --silver: hsla(180, 1%, 75%, 1);
         --white: hsla(0, 0%, 100%, 1);
         --mandarin: #EF8354;
+        --black: #0e1111;
     }
 
     a {
@@ -41,7 +42,7 @@
     }
 
     .intro-background {
-        background-color: var(--space-cadet);
+        background-color: var(--black);
     }
 
     .div-center {
@@ -59,10 +60,10 @@
     }
 
     #music-nav {
-      background-color: var(--independence);
+      background-color: var(--space-cadet);
     }
     #bio-panel {
-      background-color: var(--independence);
+      background-color: var(--space-cadet);
     }
     .page-footer {
         position:fixed;
@@ -71,17 +72,17 @@
         background-color: transparent;
     }
     .social-button {
-        background-color: var(--mandarin);
+        background-color: var(--independence);
         margin-right: 1rem;
     }
     .social-button:visited {
-        background-color: var(--mandarin);
-    }
-    .social-button:hover {
         background-color: var(--independence);
     }
-    .social-button:active {
+    .social-button:hover {
         background-color: var(--mandarin);
+    }
+    .social-button:active {
+        background-color: var(--independence);
     }
     .embed-container { 
         position: relative; 
@@ -102,6 +103,12 @@
         height: 100%;
         width: 100%;
         z-index: -1;
+    }
+    .collapsible-header {
+        background-color: var(--space-cadet);
+    }
+    .collapsible-body {
+        background-color: var(--space-cadet);
     }
 </style>
 </head>
