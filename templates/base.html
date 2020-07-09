@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
     {% if title %}
     <title>Dillon Estrada - {{ title }}</title>
     {% else %}
@@ -19,9 +21,38 @@
         --white: hsla(0, 0%, 100%, 1);
         --mandarin: #EF8354;
     }
+    /* Responsive */
+    @media screen and (min-width:924px){
+        ul li {
+            display: inline-block;
+            font-size: 3rem;
+            padding: .4rem;
+        }
+        .title-text {
+            font-size: 5rem;
+        }
+    }
+    @media screen and (max-width: 923px){
+        ul li {
+            font-size: 3rem;
+            padding: .4rem;
+            margin-bottom: 1rem;
+        }
+        div #title-container {
+            width: 100%;
+        }
+        .title-text {
+            font-size: 5rem;
+        }
+    }
 
     a {
       color: inherit;
+    }
+
+    .selector {
+        color: var(--silver);
+        padding: 12px;
     }
 
     .vcenter-wrapper {
@@ -37,26 +68,16 @@
 
     .title-text {
         color: var(--white);
-        font-size: 5rem;
     }
 
     .intro-background {
-        background-color: var(--space-cadet);
+        background-color: black
     }
 
     .div-center {
         margin: auto;
     }
 
-    .subtitle-text {
-        font-size: 4rem;
-        color: var(--silver);
-    }
-
-    .selector {
-        color: var(--silver);
-        padding: 12px;
-    }
 
     #music-nav {
       background-color: var(--independence);

@@ -4,8 +4,8 @@ if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	var background = "index"
 	/* gsap animations */
 	gsap.fromTo("#title-container", {opacity: 0}, {duration:2, opacity:1.0});
-	gsap.to("#music-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
-	gsap.to("#programmer-selector", {duration:.5, boxShadow: "0px 0px 5px 5px black", repeat: -1, yoyo: "true"})
+	gsap.to("#music-selector", {duration:.5, boxShadow: "0px 0px 5px 5px white", repeat: -1, yoyo: "true"})
+	gsap.to("#programmer-selector", {duration:.5, boxShadow: "0px 0px 5px 5px white", repeat: -1, yoyo: "true"})
 	gsap.fromTo(".title-text", {textShadow: "5px 10px black"}, {duration: 6, textShadow: "5px 10px 10px black", repeat: -1, yoyo: "true"})
 
 	var musician = document.getElementById("music-selector");
@@ -59,6 +59,13 @@ $(document).ready(function(){
 	if($(".collapsible")[0]){
 		$('.collapsible').collapsible();
 	};
+	if($(".modal")[0]){
+		$('.modal').modal();
+	};
+	if($(".sidenav")[0]){
+		console.log("test");
+		$('.sidenav').sidenav();
+	};
 	gsap.fromTo('.content', {opacity: 0}, {duration: .7, ease: "circ.in", opacity: 1});
 });
 
@@ -71,9 +78,9 @@ function backgroundOnHover(element, type)  {
 		var elementName = element.className;
 	}
 	element.addEventListener('mouseover', function() {
-		gsap.to(symbol + elementName, {duration: 1, backgroundColor: "black"});
+		gsap.to(symbol + elementName, {duration: 1, backgroundColor: "white", color: "black"});
 	});
 	element.addEventListener('mouseout', function() {
-		gsap.to(symbol + elementName, {duration: 1, backgroundColor: "transparent"});
+		gsap.to(symbol + elementName, {duration: 1, backgroundColor: "transparent", color: "hsla(180, 1%, 75%, 1)"});
 	});
 };
