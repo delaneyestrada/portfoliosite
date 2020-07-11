@@ -1,5 +1,6 @@
 gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
 
+
 if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	var background = "index"
 	/* gsap animations */
@@ -29,6 +30,85 @@ if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 } else if(window.location.pathname=='/media'){
 	background = "musician"
 	$('#nav-media-btn').addClass("active");
+	
+	// Variables
+	let player,
+	card  = document.querySelector( '.vcard' ),
+	play  = document.querySelector( '.card-play' ),
+	video = document.querySelector( '.card-video' );
+
+	let playlistMap = {"Kyle Park": "PLrev1ridNn9H-gvJjS9i3BaTfggPNOqQy", "Shotgun Rider": "PLrev1ridNn9FRFQmhnR3hZMRd2v0DS_FP", "Drum Covers": "PLrev1ridNn9HEpf8t_aunLFgKOp2Ek93C", "Church": "PLrev1ridNn9H2yL7khnDvqhONni2DxpQ6"}
+	
+	document.querySelectorAll('.dropdown-content li').forEach(
+		btn => btn.addEventListener('click', function() {
+			let dropdownId = btn.parentNode.id;
+			let n = dropdownId.indexOf('-');
+			let containerId = dropdownId.substring(0, n != -1 ? n : dropdownId.length) + '-col';
+			let btnContent = btn.innerText;
+			let imageName = btnContent.replace(/\s+/g, '');
+			let backgroundUrl = "/static/img/" + imageName + ".png";
+			let container = document.querySelector('#' + containerId);
+			container.style.display = "block";
+			if (player && player.getPlayerState() == 1){
+				player.pauseVideo();
+			};
+
+			if (dropdownId == "video-drop"){
+				container.previousElementSibling.style.display = "none";
+				card.style.background = "#000 url('" + backgroundUrl + "') center center / cover";
+				if (video.style.display == "block") {
+					video.style.display = "none";
+					card.classList.remove( 'video-is-open' );
+				};
+				//video.firstChild.src = 'https://www.youtube.com/playlist?list=' + playlistMap[btnContent] + 'enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0'
+				video.firstChild.src = 'https://www.youtube.com/embed?listType=playlist&list=' + playlistMap[btnContent] +'&amp;enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0"'
+				// video.innerHTML = '<iframe id="video" src="https://www.youtube.com/playlist?list=' + playlistMap[btnContent] + 'enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'
+			} else if (dropdownId == "audio-drop"){
+				container.nextElementSibling.style.display = "none";
+			}
+		}
+	));
+
+
+	// Shine effect
+	card.onmousemove = function (e) {
+	const x = e.pageX - card.offsetLeft;
+	const y = e.pageY - card.offsetTop;
+
+	card.style.setProperty( '--x', x + 'px' );
+	card.style.setProperty( '--y', y + 'px' );
+	}
+
+
+	// Youtube API
+	function onYouTubePlayerAPIReady() {
+	player = new YT.Player('video', {
+	events: {
+	'onReady': onPlayerReady
+	}
+	});
+	}
+
+
+	// Player Ready
+	function onPlayerReady(event) {
+	play.addEventListener( 'click', function() {
+	card.classList.add( 'video-is-open' );
+	setTimeout(function() {
+		video.style.display = 'block';
+		player.playVideo();
+	}, 500);
+	});
+	}
+
+
+	// Inject YouTube API script
+	var tag = document.createElement('script');
+	tag.src = "//www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
 }
 
 /* load musician particle.js background */
@@ -47,11 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
     for (i=0;i<elems.length;i++){
 		M.Tooltip.getInstance(elems[i]).open();
 	};
+
+
   });
 
 $(document).ready(function(){
 	if($(".dropdown-trigger")[0]){
-		$(".dropdown-trigger").dropdown();
+		$(".dropdown-trigger").dropdown(
+			{
+				'hover': true,
+				'closeOnClick': true
+			});
 	};
 	if($(".slider")[0]){
 		$('.slider').slider();
@@ -63,7 +149,6 @@ $(document).ready(function(){
 		$('.modal').modal();
 	};
 	if($(".sidenav")[0]){
-		console.log("test");
 		$('.sidenav').sidenav();
 	};
 	gsap.fromTo('.content', {opacity: 0}, {duration: .7, ease: "circ.in", opacity: 1});

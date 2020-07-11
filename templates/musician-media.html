@@ -1,15 +1,32 @@
 {% extends "musician-base.html" %}
 {% block content %}
-<div class="col s12 l6 offset-l3" style="max-height:100%">
-    <ul class="collapsible popout white-text">
-        <li>
-            <div class="collapsible-header"><i class="fa fa-headphones"></i>Studio Work</div>
-            <div class="collapsible-body"><div class='embed-container'><iframe src="https://open.spotify.com/embed/playlist/2wnwpJWybTBKCXUeM1zLBD" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div></div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="fa fa-video-camera"></i>Video Playlist</div>
-            <div class="collapsible-body"><div class='embed-container'><iframe src='https://www.youtube-nocookie.com/embed/videoseries?list=PLrev1ridNn9FFcYvmvB9e3kgJc6T_hexX' frameborder='0' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>
-          </li>
-        </ul>
+<div class="col s12 center-align" id="media-selectors">
+  <!-- Dropdown Trigger -->
+  <a class='dropdown-trigger btn-large' id="audio-btn" href='#' data-target='audio-drop'> <i class="fa fa-headphones left"></i>Audio</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='audio-drop' class='dropdown-content'>
+    <li><a href="#!">Studio Work</a></li>
+    <li><a href="#!">Original Music</a></li>
+  </ul>
+  <!-- Dropdown Trigger -->
+  <a class='dropdown-trigger btn-large' id="video-btn" href='#' data-target='video-drop'><i class="fa fa-video-camera left"></i>Video</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='video-drop' class='dropdown-content'>
+    <li><a href="#!">Kyle Park</a></li>
+    <li><a href="#!">Shotgun Rider</a></li>
+    <li><a href="#!">Church</a></li>
+    <li><a href="#!">Drum Covers</a></li>
+  </ul>
 </div>
+<div class="col s10 offset-s1" id="audio-col" style="max-height:70%; height: 70%">
+<div class='embed-container'><iframe src="https://open.spotify.com/embed/playlist/2wnwpJWybTBKCXUeM1zLBD" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+</div>
+<div class="col s10 offset-s1" id="video-col" style="max-height:100%">
+            <div class="vcard">
+              <div class="card-play"></div>
+              <div class="card-video"><iframe id="video" src="https://www.youtube.com/embed/zTKZc5rrWxs?enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+          </div>          
+          </div>
 {% endblock %}
