@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* LIST OF MATERIALIZE COMPONENTS NEEDING INITIALIZATION */
-let mComponents = [['.dropdown-trigger', {'hover': true}]];
+let mComponents = [['.dropdown-trigger', {'hover': true}], ['.slider', {'duration': 1000}]];
 
 document.addEventListener('DOMContentLoaded', function(){ 
 	M.AutoInit();
@@ -205,6 +205,9 @@ document.addEventListener('DOMContentLoaded', function(){
 		if (!!(elems = document.querySelectorAll(elName)) == true){
 			if (elName == '.dropdown-trigger'){
 				var instances = M.Dropdown.init(elems, options);
+			}
+			if (elName == '.slider'){
+				var instances = M.Slider.init(elems, options);
 			}
 		}
 	}
