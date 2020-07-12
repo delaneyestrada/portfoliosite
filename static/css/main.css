@@ -1,0 +1,27 @@
+:root {
+    --space-cadet: hsla(229, 32%, 26%, 1);
+    --independence: hsla(218, 32%, 46%, 1);
+    --silver: hsla(180, 1%, 75%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+    --mandarin: #EF8354;
+    --black: #0e1111;
+}
+
+a {
+    color: inherit;
+}
+
+.vcenter-wrapper {
+    position: relative;
+}
+
+.vcenter {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+}
+
+.intro-background {
+    background-color: var(--black);
+}

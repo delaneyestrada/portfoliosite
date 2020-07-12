@@ -1,57 +1,72 @@
 {% extends "musician-base.html" %}
 {% block content %}
 
-    <div class="col s10 m6 l4 offset-s1 offset-l2">
-        <div class="slider" style="margin-top: 7px">
-            <ul class="slides">
-                <li>
-                    <img src="{{ url_for('static', filename='/img/dpic1.jpg') }}">
-                </li>
-                <li>
-                    <img src="{{ url_for('static', filename='/img/dpic2.jpg') }}">
-                </li>
-                <li>
-                    <img src="{{ url_for('static', filename='/img/dpic3.jpg') }}">
-                </li>
-                <li>
-                    <img src="{{ url_for('static', filename='/img/dpic4.jpg') }}">
-                </li>
-            </ul>
-        </div>
+<div class="col s10 m6 l4 offset-s1 offset-l2">
+    <div class="slider" style="margin-top: 7px">
+        <ul class="slides">
+            <li>
+                <img src="{{ url_for('static', filename='/img/dpic1.jpg') }}">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='/img/dpic2.jpg') }}">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='/img/dpic3.jpg') }}">
+            </li>
+            <li>
+                <img src="{{ url_for('static', filename='/img/dpic4.jpg') }}">
+            </li>
+        </ul>
     </div>
-    <div class="col s10 offset-s1 m6 l4">
-        <div class="card-panel" id="bio-panel">
-            <p class="white-text">Dillon Estrada is a touring drummer specializing in studio and live performances. He currently resides in the Austin, TX area and holds a degree from the well-renowned South Plains College Commercial Music program.
-            </p>
-            <p class="white-text" style="margin-bottom:8">
-                Dillon is currently on the road with long-time Texas Country favorite <a href="http://www.kylepark.com/index.html" target="_blank" class="animate-link">Kyle Park</a> and has had the opportunity to work with artists such as:</p>
-            <ul id="artist-list" class="white-text" style="margin-top:0">
-                <li class="artist"><a href="https://www.facebook.com/therealshotgunrider/" target="_blank" class="animate-link">Shotgun Rider</a></li>
-                <li class="artist"><a href="https://www.facebook.com/randallkingband" target="_blank" class="animate-link">Randall King</a></li>
-                <li class="artist"><a href="https://www.facebook.com/KoeWetzelMusic/" target="_blank" class="animate-link">Koe Wetzel</a></li>
-                <li class="artist"><a href="https://www.facebook.com/Dylan-Wheeler-520767778410855" target="_blank" class="animate-link">Dylan Wheeler</a></li>
-                <li class="artist"><a href="https://www.facebook.com/kaitlinbutts" target="_blank" class="animate-link">Kaitlin Butts</a></li>
-                <li>and many more.</li>
-            </ul>
-        </div>
+</div>
+<div class="col s10 offset-s1 m6 l4">
+    <div class="card-panel" id="bio-panel">
+        <p class="white-text">Dillon Estrada is a touring drummer specializing in studio and live performances. He
+            currently resides in the Austin, TX area and holds a degree from the well-renowned South Plains College
+            Commercial Music program.
+        </p>
+        <p class="white-text" style="margin-bottom:8">
+            Dillon is currently on the road with long-time Texas Country favorite <a
+                href="http://www.kylepark.com/index.html" target="_blank" class="animate-link">Kyle Park</a> and has had
+            the opportunity to work with artists such as:</p>
+        <ul id="artist-list" class="white-text" style="margin-top:0">
+            <li class="artist"><a href="https://www.facebook.com/therealshotgunrider/" target="_blank"
+                    class="animate-link">Shotgun Rider</a></li>
+            <li class="artist"><a href="https://www.facebook.com/randallkingband" target="_blank"
+                    class="animate-link">Randall King</a></li>
+            <li class="artist"><a href="https://www.facebook.com/KoeWetzelMusic/" target="_blank"
+                    class="animate-link">Koe Wetzel</a></li>
+            <li class="artist"><a href="https://www.facebook.com/Dylan-Wheeler-520767778410855" target="_blank"
+                    class="animate-link">Dylan Wheeler</a></li>
+            <li class="artist"><a href="https://www.facebook.com/kaitlinbutts" target="_blank"
+                    class="animate-link">Kaitlin Butts</a></li>
+            <li>and many more.</li>
+        </ul>
     </div>
+</div>
 {% endblock %}
 {% block footer %}
 <footer class="page-footer " id="footer-social">
     <div class="container">
-      <div class="row">
-        <div class="col s12 footer-social center-align">
-          <a href="https://www.facebook.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-            <i class = "fa fa-facebook"></i></a>
-        <a href="https://www.instagram.com/dillon_estrada/" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-          <i class = "fa fa-instagram"></i></a>
-          <a href="https://twitter.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-            <i class = "fa fa-twitter"></i></a>
-            <a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-              <i class = "fa fa-youtube"></i></a>
-            <a href="mailto:dillon.estrada55@gmail.com" target="_blank" data-target="modal1" class = "btn-floating btn-large waves-effect waves-light social-button modal-trigger"><i class="fa fa-envelope"></i></a>
-          </div>
-      </div>
-      </div>
-    </footer>
+        <div class="row">
+            <div class="col s12 footer-social center-align">
+                <a href="https://www.facebook.com/dillondrums" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light social-button">
+                    <i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/dillon_estrada/" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light social-button">
+                    <i class="fa fa-instagram"></i></a>
+                <a href="https://twitter.com/dillondrums" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light social-button">
+                    <i class="fa fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank"
+                    class="btn-floating btn-large waves-effect waves-light social-button">
+                    <i class="fa fa-youtube"></i></a>
+                <a href="mailto:dillon.estrada55@gmail.com" target="_blank" data-target="modal1"
+                    class="btn-floating btn-large waves-effect waves-light social-button modal-trigger"><i
+                        class="fa fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

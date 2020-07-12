@@ -2,8 +2,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     {% if title %}
     <title>Dillon Estrada - {{ title }}</title>
@@ -15,392 +15,8 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    :root {
-        --space-cadet: hsla(229, 32%, 26%, 1);
-        --independence: hsla(218, 32%, 46%, 1);
-        --silver: hsla(180, 1%, 75%, 1);
-        --white: hsla(0, 0%, 100%, 1);
-        --mandarin: #EF8354;
-        --black: #0e1111;
-    }
-
-    /* Responsive */
-    @media screen and (min-width:924px){
-        .portfolio-selector {
-            font-size: 1.25rem
-        }
-        .vcard {
-            width: 70vw;
-            height: calc(9/16 * 70vw);
-            max-width: calc(16/9 * 70vh);
-            max-height: 70vh;
-        }
-    }
-    @media screen and (max-width: 923px){
-        .portfolio-selector {
-            display: none;
-        }
-        #footer-social {
-            display: none;
-        }
-        .vcard {
-            width: 95vw;
-            height: calc(9/16 * 95vw);
-            max-width: calc(16/9 * 95vh);
-            max-height: 95vh;
-        }
-    }
-
-    #audio-col {
-        display: none;
-        padding-top: 2vh;
-    }
-
-    #video-col {
-        display: none;
-        padding-top: 2vh;
-    }
-
-    #media-selectors {
-        margin-top: .5rem
-    }
-
-    #media-selectors .btn-large {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    .footer-social {
-        margin:auto;
-        width:50%
-    }
-    a {
-      color: inherit;
-    }
-
-    .vcenter-wrapper {
-        position: relative;
-    }
-
-    .vcenter {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -45%);
-    }
-    
-    .vcenter-container {
-        position: relative;
-        min-height: 100vh;
-    }
-    .vertical-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-
-    .title-text {
-        color: var(--white);
-        font-size: 5rem;
-    }
-
-    .intro-background {
-        background-color: var(--black);
-    }
-
-    .div-center {
-        margin: auto;
-    }
-
-    .subtitle-text {
-        font-size: 4rem;
-        color: var(--silver);
-    }
-
-    .selector {
-        color: var(--silver);
-        padding: 12px;
-    }
-
-    #music-nav {
-      background-color: var(--space-cadet);
-    }
-    #bio-panel {
-      background-color: var(--space-cadet);
-    }
-    .page-footer {
-        position:fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: transparent;
-    }
-    .social-button {
-        background-color: var(--independence);
-        margin-right: .5rem;
-        margin-left: .5rem;
-        width: 8vh;
-        height: 8vh;
-    }
-
-    .social-button i {
-        line-height: 8vh;
-        vertical-align: middle;
-        font-size: 1.6rem;
-    }
-
-    .social-button:visited {
-        background-color: var(--independence);
-    }
-    .social-button:hover {
-        background-color: var(--mandarin);
-    }
-    .social-button:active {
-        background-color: var(--independence);
-    }
-    .embed-container { 
-        position: relative; 
-        height: 100%;
-        overflow: hidden; 
-        max-width: 100%; 
-        } 
-    .embed-container iframe { 
-        position: absolute;
-        top: 0; 
-        left: 0; 
-        height: 100%;
-        width: 100%;
-        }
-    canvas {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-    }
-    .collapsible-header {
-        background-color: var(--space-cadet);
-    }
-    .collapsible-body {
-        background-color: var(--space-cadet);
-        height: 50%;
-    }
-    nav .brand-logo {
-        height: inherit;
-        padding: 3px;
-    }
-
-/* ------------ Media Buttons ------------ */
-    #media-selectors > .dropdown-trigger {
-        background-color: var(--independence);
-    }
-
-/* ------------ YouTube Player ------------ */
- .vcard {
-	 
-	 display: flex;
-	 position: relative;
-	 border-radius: 6px;
-	 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-	 overflow: hidden;
-     margin: auto;
-}
-
-
- .card-play {
-	 width: 48px;
-	 height: 48px;
-	 position: relative;
-	 z-index: 1;
-	 margin: auto;
-	 opacity: 1;
-	 background: url("{{ url_for('static', filename='assets/play-button.svg') }}") center center / cover;
-	 cursor: pointer;
-	 transition: opacity 0.3s ease-out;
-}
- .card-play:after {
-	 content: '';
-	 position: absolute;
-	 top: 50%;
-	 left: 50%;
-	 transform: translate(-50%, -50%);
-	 border-radius: 50%;
-	 background: #000;
-	 transition: all 0.5s ease-out;
-}
- .card-video {
-	 display: none;
-	 position: absolute;
-	 top: 0;
-	 left: 0;
-	 bottom: 0;
-	 right: 0;
-	 z-index: 2;
-	 background: #000;
-}
- .card-video iframe {
-	 width: 100%;
-	 height: 100%;
-}
- .vcard:after {
-	 content: '';
-	 width: 250%;
-	 height: 250%;
-	 position: absolute;
-	 top: var(--y);
-	 left: var(--x);
-	 transform: translate(-50%, -50%);
-	 opacity: 0;
-	 background: radial-gradient(circle closest-side, rgba(255, 255, 255, .1), transparent);
-	 transition: opacity 0.5s ease-out;
-}
-/* ------------ STATES ------------ */
- .vcard:hover:after, .vcard:hover .card-play {
-	 opacity: 1;
-}
- .video-is-open:after {
-	 display: none;
-}
- .video-is-open .card-play {
-	 opacity: 1;
-}
- .video-is-open .card-play:after {
-	 width: 2vh;
-	 height: 2vh;
-	 transform: translate(-50%, -50%) scale(88.8888888889);
-	 transition: transform 0.5s ease-out;
-}
- 
-/* ------------ Toolbar ------------ */
-footer#footer-media {
-    height: 15vw;
-    padding: 0;
-}
-
-#footer-media > .row {
-    height: 100%;
-}
-.toolbar-fixed {
-width: 100%;
-padding: 0;
-height: 5rem;
-position: fixed;
-bottom: 0px;
-background-color: var(--mandarin);
-}
-.toolbar-fixed.active > a i {
-opacity: 0;
-}
-.toolbar-fixed ul {
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
-top: 0;
-bottom: 0;
-}
-.toolbar-fixed ul li {
--webkit-flex: 1;
--ms-flex: 1;
-flex: 1;
-display: inline-block;
-height: 100%;
-transition: none;
-position: relative;
-border-right: 1px solid rgba(0, 0, 0, .4);
-}
-.toolbar-fixed ul li a.fa-icon{
-display: inline-block;
-position: relative;
-
-width: 100%;
-height: 100%;
-background-color: transparent;
-box-shadow: none;
-color: #fff;
-z-index: 1;
-}
-
-.toolbar-fixed ul li a.custom{
-display: block;
-overflow: hidden;
-position: relative;
-width: 100%;
-height: 100%;
-background-color: transparent;
-box-shadow: none;
-color: #fff;
-z-index: 1;
-
-}
-
-.toolbar-fixed > ul {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-/* ------------ Media Buttons ------------ */
-
-li.media-btn {
-    width: 100%;
-    height: 100%;
-}
-
-li.media-btn > a.fa-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    width: 100%;
-    height: 100%;
-    font-size: .8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all linear 0.05s;
-    -webkit-transition: all linear 0.05s;
-    -moz-transition: all linear 0.05s;
-}
-li.media-btn > a.custom {
-    position: relative;
-    font-size: .8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all linear 0.05s;
-    -webkit-transition: all linear 0.05s;
-    -moz-transition: all linear 0.05s;
-}
-
-li.media-btn > a .fa, li.media-btn > a .fas {
-    display: block;
-    font-size: 2.2rem;
-    height: 2.2rem;
-    margin: 0 auto 0;
-    text-align: center;
-    color: var(--black);
-}
-
-li.media-btn > a > img {
-    display: block;
-    height: 1em;
-    margin: 0 auto 0;
-    text-align: center;
-    width: 1em;
-}
-.media-btn-content {
-    position: relative;
-    bottom: 0px;
-    overflow: hidden;
-    width: 100%;
-    height: 15vw;
-    top: 1vh;
-}
-.custom-icon {
-    height: 2.2rem;
-
-}
-
-
-
-</style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/musician-base.css') }}">
 </head>
 
 <body class="intro-background" style="height:100%">
@@ -416,39 +32,50 @@ li.media-btn > a > img {
         <nav id="music-nav">
             <img src="{{ url_for('static', filename='assets/logo.svg') }}" class="brand-logo center">
             <div class="nav-wrapper">
-                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-down"><i class="fa fa-bars fa-2x"></i></a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-down"><i
+                        class="fa fa-bars fa-2x"></i></a>
                 <ul class="hide-on-med-and-down">
                     <li id="nav-bio-btn"><a href="./musician">Bio</a></li>
                     <li id="nav-media-btn"><a href="/media">Media</a></li>
 
-        </ul>
-        <a class="dropdown-trigger right portfolio-selector hide-on-med-and-down" href="#!" data-target="dropdown1">Music Page<i class="material-icons right">arrow_drop_down</i></a>
+                </ul>
+                <a class="dropdown-trigger right portfolio-selector hide-on-med-and-down" href="#!"
+                    data-target="dropdown1">Music Page<i class="material-icons right">arrow_drop_down</i></a>
             </div>
         </nav>
         <ul id="slide-out" class="sidenav">
             <li><a href="./">Home</a></li>
-            <li><div class="divider"></div></li>
+            <li>
+                <div class="divider"></div>
+            </li>
             <li><a class="subheader">Music</a></li>
             <li><a href="./musician"><i class="fa fa-circle"></i>Bio</a></li>
             <li><a href="./media"><i class="fa fa-circle"></i>Media</a></li>
-            <li><div class="divider"></div></li>
+            <li>
+                <div class="divider"></div>
+            </li>
             <li><a class="subheader">Socials</a></li>
-            <li><a href="https://www.facebook.com/dillondrums" target="_blank"><i class = "fa fa-facebook"></i>Facebook</a></li>
-            <li><a href="https://www.instagram.com/dillon_estrada/" target="_blank"><i class = "fa fa-instagram"></i>Instagram</a></li>
-            <li><a href="https://twitter.com/dillondrums" target="_blank"><i class = "fa fa-twitter"></i>Twitter</a></li>
-            <li><a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank"><i class = "fa fa-youtube"></i>YouTube</a></li>
-            <li><a href="mailto:dillon.estrada55@gmail.com" target="_blank"><i class = "fa fa-envelope"></i>Email</a></li>
-            <li><div class="divider"></div></li>
+            <li><a href="https://www.facebook.com/dillondrums" target="_blank"><i
+                        class="fa fa-facebook"></i>Facebook</a></li>
+            <li><a href="https://www.instagram.com/dillon_estrada/" target="_blank"><i
+                        class="fa fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://twitter.com/dillondrums" target="_blank"><i class="fa fa-twitter"></i>Twitter</a></li>
+            <li><a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank"><i
+                        class="fa fa-youtube"></i>YouTube</a></li>
+            <li><a href="mailto:dillon.estrada55@gmail.com" target="_blank"><i class="fa fa-envelope"></i>Email</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
             <li><a href="./developer">Web Development</a></li>
 
-          </ul>
-    <div class="content">
-    {% block content %}{% endblock %}
+        </ul>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        {% block footer %}{% endblock %}
+
     </div>
-    {% block footer %}{% endblock %}
-    
-    </div>
-        
+
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://kit.fontawesome.com/9e8c014a1a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

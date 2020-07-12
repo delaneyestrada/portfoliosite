@@ -1,0 +1,34 @@
+
+/* Responsive */
+@media screen and (min-width:924px){
+    ul li {
+        display: inline-block;
+        font-size: 3rem;
+        padding: .4rem;
+    }
+    .title-text {
+        font-size: 5rem;
+    }
+}
+@media screen and (max-width: 923px){
+    ul li {
+        font-size: 3rem;
+        padding: .4rem;
+        margin-bottom: 1rem;
+    }
+    div #title-container {
+        width: 100%;
+    }
+    .title-text {
+        font-size: 5rem;
+    }
+}
+
+.selector {
+    color: var(--silver);
+    padding: 12px;
+}
+
+#title-container {
+    color: var(--white);
+}
