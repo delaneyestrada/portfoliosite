@@ -1,3 +1,4 @@
+service: default
 runtime: python37
 default_expiration: 10m
 automatic_scaling:

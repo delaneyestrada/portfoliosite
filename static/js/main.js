@@ -1,5 +1,3 @@
-gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
-
 let touch = null;
 if ("ontouchstart" in document.documentElement) {
 	touch = true
@@ -43,28 +41,30 @@ if (window.location.pathname == '/' || window.location.pathname == '/developer')
 	backgroundOnHover(musician, "id");
 	backgroundOnHover(programmer, "id");
 } else if (window.location.pathname == '/musician') {
+	let mobileCurrentPageLink = document.querySelector(".sidenav > li > a[href='./musician']");
+	mobileCurrentPageLink.style.backgroundColor = 'rgba(0,0,0,0.05)';
+
 	background = "musician"
-	$('#nav-bio-btn').addClass("active");
+	document.querySelector('#nav-bio-btn').classList.add("active");
 	gsap.to(".animate-link", {
 		duration: 2,
 		textShadow: "1px 1px 5px #EF8354",
 		repeat: -1,
 		yoyo: "true"
 	});
-	$('.animate-link').each(function () {
-		$(this).hover(function () {
-				gsap.to(($(this)), {
-					duration: .5,
-					backgroundColor: "black"
-				});
-			},
-			function () {
-
-				gsap.to(($(this)), {
-					duration: .5,
-					backgroundColor: "transparent"
-				});
+	document.querySelectorAll('.animate-link').forEach( link => {
+		link.addEventListener('mouseover', function() {
+			gsap.to(this, {
+				duration: .5,
+				backgroundColor: "black",
 			});
+		}),
+		link.addEventListener('mouseout', function() {
+			gsap.to(this, {
+				duration: .5,
+				backgroundColor: "transparent",
+			});
+		})
 	});
 } else if (window.location.pathname == '/media') {
 	if (touch) {
@@ -77,7 +77,9 @@ if (window.location.pathname == '/' || window.location.pathname == '/developer')
 		document.querySelector('#footer-social').style.display = "block";
 	}
 	background = "musician"
-	$('#nav-media-btn').addClass("active");
+	document.querySelector('#nav-media-btn').classList.add("active");
+	let mobileCurrentPageLink = document.querySelector(".sidenav > li > a[href='./media']");
+	mobileCurrentPageLink.style.backgroundColor = 'rgba(0,0,0,0.05)';
 
 	// Variables
 	let player,
@@ -190,25 +192,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-$(document).ready(function () {
-	if ($(".dropdown-trigger")[0] && !touch) {
-		$(".dropdown-trigger").dropdown({
-			'hover': true,
-			//'closeOnClick': true
-		});
-	};
-	if ($(".slider")[0]) {
-		$('.slider').slider();
-	};
-	if ($(".collapsible")[0]) {
-		$('.collapsible').collapsible();
-	};
-	if ($(".modal")[0]) {
-		$('.modal').modal();
-	};
-	if ($(".sidenav")[0]) {
-		$('.sidenav').sidenav();
-	};
+/* LIST OF MATERIALIZE COMPONENTS NEEDING INITIALIZATION */
+let mComponents = [['.dropdown-trigger', {'hover': true}]];
+
+document.addEventListener('DOMContentLoaded', function(){ 
+	M.AutoInit();
+	for (i = 0; i < mComponents.length; i++){
+		let elName = mComponents[i][0];
+		let options = mComponents[i][1];
+		let elems;
+
+		if (!!(elems = document.querySelectorAll(elName)) == true){
+			if (elName == '.dropdown-trigger'){
+				var instances = M.Dropdown.init(elems, options);
+			}
+		}
+	}
 	gsap.fromTo('.content', {
 		opacity: 0
 	}, {
