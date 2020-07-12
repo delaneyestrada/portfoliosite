@@ -1,5 +1,7 @@
 gsap.registerPlugin(MotionPathPlugin, TextPlugin, CSSRulePlugin);
 
+let touch = null;
+if ("ontouchstart" in document.documentElement){ touch = true } else { touch = false };
 
 if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	var background = "index"
@@ -28,6 +30,15 @@ if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	});
 });
 } else if(window.location.pathname=='/media'){
+	if(touch){
+		document.querySelector('#footer-media').style.visibility = "hidden";
+		document.querySelector('#footer-social').style.display = "none";
+		document.querySelectorAll('.dropdown-trigger').forEach(
+			btn => btn.removeAttribute("data-target"));
+	} else {
+		document.querySelector('#footer-media').style.display = "none";
+		document.querySelector('#footer-social').style.display = "block";
+	}
 	background = "musician"
 	$('#nav-media-btn').addClass("active");
 	
@@ -36,38 +47,45 @@ if (window.location.pathname=='/' || window.location.pathname=='/developer') {
 	card  = document.querySelector( '.vcard' ),
 	play  = document.querySelector( '.card-play' ),
 	video = document.querySelector( '.card-video' );
-
+	let query;
 	let playlistMap = {"Kyle Park": "PLrev1ridNn9H-gvJjS9i3BaTfggPNOqQy", "Shotgun Rider": "PLrev1ridNn9FRFQmhnR3hZMRd2v0DS_FP", "Drum Covers": "PLrev1ridNn9HEpf8t_aunLFgKOp2Ek93C", "Church": "PLrev1ridNn9H2yL7khnDvqhONni2DxpQ6"}
-	
-	document.querySelectorAll('.dropdown-content li').forEach(
-		btn => btn.addEventListener('click', function() {
-			let dropdownId = btn.parentNode.id;
-			let n = dropdownId.indexOf('-');
-			let containerId = dropdownId.substring(0, n != -1 ? n : dropdownId.length) + '-col';
-			let btnContent = btn.innerText;
-			let imageName = btnContent.replace(/\s+/g, '');
-			let backgroundUrl = "/static/img/" + imageName + ".png";
-			let container = document.querySelector('#' + containerId);
-			container.style.display = "block";
-			if (player && player.getPlayerState() == 1){
-				player.pauseVideo();
-			};
-
-			if (dropdownId == "video-drop"){
-				container.previousElementSibling.style.display = "none";
-				card.style.background = "#000 url('" + backgroundUrl + "') center center / cover";
-				if (video.style.display == "block") {
-					video.style.display = "none";
-					card.classList.remove( 'video-is-open' );
+	if (!touch){ 
+		query = ".dropdown-content li" 
+	} else { 
+		query = ".media-btn";
+		document.querySelectorAll('.dropdown-trigger').forEach(
+			btn => btn.addEventListener('click', function() {
+				document.querySelector('#footer-media').style.visibility = 'visible';
+			})
+		)
+	};
+		document.querySelectorAll(query).forEach(
+			btn => btn.addEventListener('click', function() {
+				let dropdownId = btn.parentNode.id;
+				let n = dropdownId.indexOf('-');
+				let containerId = dropdownId.substring(0, n != -1 ? n : dropdownId.length) + '-col';
+				let btnContent = btn.innerText;
+				let imageName = btnContent.replace(/\s+/g, '');
+				let backgroundUrl = "/static/img/" + imageName + ".png";
+				let container = document.querySelector('#' + containerId);
+				container.style.display = "block";
+				if (player && player.getPlayerState() == 1){
+					player.pauseVideo();
 				};
-				//video.firstChild.src = 'https://www.youtube.com/playlist?list=' + playlistMap[btnContent] + 'enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0'
-				video.firstChild.src = 'https://www.youtube.com/embed?listType=playlist&list=' + playlistMap[btnContent] +'&amp;enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0"'
-				// video.innerHTML = '<iframe id="video" src="https://www.youtube.com/playlist?list=' + playlistMap[btnContent] + 'enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'
-			} else if (dropdownId == "audio-drop"){
-				container.nextElementSibling.style.display = "none";
+
+				if (dropdownId == "video-drop" || dropdownId == "video-btns"){
+					container.previousElementSibling.style.display = "none";
+					card.style.background = "#000 url('" + backgroundUrl + "') center center / cover";
+					if (video.style.display == "block") {
+						video.style.display = "none";
+						card.classList.remove( 'video-is-open' );
+					};
+					video.firstChild.src = 'https://www.youtube.com/embed?listType=playlist&list=' + playlistMap[btnContent] +'&amp;enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;modestbranding=1&amp;controls=0"'
+				} else if (dropdownId == "audio-drop" || dropdownId == "audio-btns"){
+					container.nextElementSibling.style.display = "none";
+				}
 			}
-		}
-	));
+		));
 
 
 	// Shine effect
@@ -132,11 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 $(document).ready(function(){
-	if($(".dropdown-trigger")[0]){
+	if($(".dropdown-trigger")[0] && !touch){
 		$(".dropdown-trigger").dropdown(
 			{
 				'hover': true,
-				'closeOnClick': true
+				//'closeOnClick': true
 			});
 	};
 	if($(".slider")[0]){

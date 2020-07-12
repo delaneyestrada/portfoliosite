@@ -30,24 +30,36 @@
         .portfolio-selector {
             font-size: 1.25rem
         }
+        .vcard {
+            width: 70vw;
+            height: calc(9/16 * 70vw);
+            max-width: calc(16/9 * 70vh);
+            max-height: 70vh;
+        }
     }
     @media screen and (max-width: 923px){
         .portfolio-selector {
             display: none;
         }
-        footer {
+        #footer-social {
             display: none;
+        }
+        .vcard {
+            width: 95vw;
+            height: calc(9/16 * 95vw);
+            max-width: calc(16/9 * 95vh);
+            max-height: 95vh;
         }
     }
 
     #audio-col {
         display: none;
-        padding-top: 2vw;
+        padding-top: 2vh;
     }
 
     #video-col {
         display: none;
-        padding-top: 2vw;
+        padding-top: 2vh;
     }
 
     #media-selectors {
@@ -76,6 +88,17 @@
         top: 45%;
         left: 50%;
         transform: translate(-50%, -45%);
+    }
+    
+    .vcenter-container {
+        position: relative;
+        min-height: 100vh;
+    }
+    .vertical-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
 
     .title-text {
@@ -115,8 +138,18 @@
     }
     .social-button {
         background-color: var(--independence);
-        margin-right: 1rem;
+        margin-right: .5rem;
+        margin-left: .5rem;
+        width: 8vh;
+        height: 8vh;
     }
+
+    .social-button i {
+        line-height: 8vh;
+        vertical-align: middle;
+        font-size: 1.6rem;
+    }
+
     .social-button:visited {
         background-color: var(--independence);
     }
@@ -157,14 +190,14 @@
         padding: 3px;
     }
 
-	 /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1613479/inception.jpg') center center / cover; */
+/* ------------ Media Buttons ------------ */
+    #media-selectors > .dropdown-trigger {
+        background-color: var(--independence);
+    }
 
-/* ------------ CARD ------------ */
+/* ------------ YouTube Player ------------ */
  .vcard {
-	 width: 70vw;
-	 height: calc(9/16 * 70vw);
-	 max-width: calc(16/9 * 70vh);
-	 max-height: 70vh;
+	 
 	 display: flex;
 	 position: relative;
 	 border-radius: 6px;
@@ -180,7 +213,7 @@
 	 position: relative;
 	 z-index: 1;
 	 margin: auto;
-	 opacity: 0;
+	 opacity: 1;
 	 background: url("{{ url_for('static', filename='assets/play-button.svg') }}") center center / cover;
 	 cursor: pointer;
 	 transition: opacity 0.3s ease-out;
@@ -238,8 +271,132 @@
 	 transition: transform 0.5s ease-out;
 }
  
+/* ------------ Toolbar ------------ */
+footer#footer-media {
+    height: 15vw;
+    padding: 0;
+}
 
+#footer-media > .row {
+    height: 100%;
+}
+.toolbar-fixed {
+width: 100%;
+padding: 0;
+height: 5rem;
+position: fixed;
+bottom: 0px;
+background-color: var(--mandarin);
+}
+.toolbar-fixed.active > a i {
+opacity: 0;
+}
+.toolbar-fixed ul {
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+top: 0;
+bottom: 0;
+}
+.toolbar-fixed ul li {
+-webkit-flex: 1;
+-ms-flex: 1;
+flex: 1;
+display: inline-block;
+height: 100%;
+transition: none;
+position: relative;
+border-right: 1px solid rgba(0, 0, 0, .4);
+}
+.toolbar-fixed ul li a.fa-icon{
+display: inline-block;
+position: relative;
 
+width: 100%;
+height: 100%;
+background-color: transparent;
+box-shadow: none;
+color: #fff;
+z-index: 1;
+}
+
+.toolbar-fixed ul li a.custom{
+display: block;
+overflow: hidden;
+position: relative;
+width: 100%;
+height: 100%;
+background-color: transparent;
+box-shadow: none;
+color: #fff;
+z-index: 1;
+
+}
+
+.toolbar-fixed > ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+/* ------------ Media Buttons ------------ */
+
+li.media-btn {
+    width: 100%;
+    height: 100%;
+}
+
+li.media-btn > a.fa-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all linear 0.05s;
+    -webkit-transition: all linear 0.05s;
+    -moz-transition: all linear 0.05s;
+}
+li.media-btn > a.custom {
+    position: relative;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all linear 0.05s;
+    -webkit-transition: all linear 0.05s;
+    -moz-transition: all linear 0.05s;
+}
+
+li.media-btn > a .fa, li.media-btn > a .fas {
+    display: block;
+    font-size: 2.2rem;
+    height: 2.2rem;
+    margin: 0 auto 0;
+    text-align: center;
+    color: var(--black);
+}
+
+li.media-btn > a > img {
+    display: block;
+    height: 1em;
+    margin: 0 auto 0;
+    text-align: center;
+    width: 1em;
+}
+.media-btn-content {
+    position: relative;
+    bottom: 0px;
+    overflow: hidden;
+    width: 100%;
+    height: 15vw;
+    top: 1vh;
+}
+.custom-icon {
+    height: 2.2rem;
+
+}
 
 
 
@@ -288,26 +445,12 @@
     <div class="content">
     {% block content %}{% endblock %}
     </div>
-    <footer class="page-footer hide-on-med-and-down">
-        <div class="container">
-          <div class="row">
-            <div class="col s12 footer-social center-align">
-              <a href="https://www.facebook.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-                <i class = "fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/dillon_estrada/" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-              <i class = "fa fa-instagram"></i></a>
-              <a href="https://twitter.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-                <i class = "fa fa-twitter"></i></a>
-                <a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
-                  <i class = "fa fa-youtube"></i></a>
-                <a href="mailto:dillon.estrada55@gmail.com" target="_blank" data-target="modal1" class = "btn-floating btn-large waves-effect waves-light social-button modal-trigger"><i class="fa fa-envelope"></i></a>
-              </div>
-          </div>
-          </div>
-      </footer>
+    {% block footer %}{% endblock %}
+    
     </div>
         
     <!--JavaScript at end of body for optimized loading-->
+    <script src="https://kit.fontawesome.com/9e8c014a1a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

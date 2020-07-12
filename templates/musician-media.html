@@ -7,7 +7,7 @@
   <!-- Dropdown Structure -->
   <ul id='audio-drop' class='dropdown-content'>
     <li><a href="#!">Studio Work</a></li>
-    <li><a href="#!">Original Music</a></li>
+    <li><a href="#!" class="disabled">Original Music</a></li>
   </ul>
   <!-- Dropdown Trigger -->
   <a class='dropdown-trigger btn-large' id="video-btn" href='#' data-target='video-drop'><i class="fa fa-video-camera left"></i>Video</a>
@@ -20,13 +20,70 @@
     <li><a href="#!">Drum Covers</a></li>
   </ul>
 </div>
-<div class="col s10 offset-s1" id="audio-col" style="max-height:70%; height: 70%">
+<div class="col s12 l10 offset-s1" id="audio-col" style="max-height:70%; height: 70%">
 <div class='embed-container'><iframe src="https://open.spotify.com/embed/playlist/2wnwpJWybTBKCXUeM1zLBD" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
 </div>
-<div class="col s10 offset-s1" id="video-col" style="max-height:100%">
+<div class="col s12 l10 offset-l1" id="video-col" style="max-height:100%">
             <div class="vcard">
               <div class="card-play"></div>
               <div class="card-video"><iframe id="video" src="https://www.youtube.com/embed/zTKZc5rrWxs?enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
           </div>          
           </div>
+{% endblock %}
+
+{% block footer %}
+<footer class="page-footer " id="footer-media">
+  <div class="row">
+
+    <div class="toolbar-fixed center-align">
+        <ul id="video-btns">
+        <li class="waves-effect waves-light media-btn"><a href="#" class="custom">
+            <div class="media-btn-content">
+            <img src="{{ url_for('static', filename='assets/KPLogo.svg') }}" class="custom-icon" id="KP-logo">
+            <div class="btn-text">Kyle Park</div>
+        </div>
+        </a>
+        </li>
+        <li class="waves-effect waves-light media-btn"><a href="#" class="custom">
+            <div class="media-btn-content">
+            <img src="{{ url_for('static', filename='assets/SRLogo.svg') }}" class="custom-icon" id="SR-logo">
+            <div class="btn-text">Shotgun Rider</div>
+        </div>
+        </a>
+        </li>
+        <li class="waves-effect waves-light media-btn "><a href="#" class="fa-icon">
+            <div class="media-btn-content">
+            <i class="fas fa-place-of-worship"></i>
+            <div class="btn-text">Church</div>
+        </div>
+        </a>
+        </li>
+        <li class="waves-effect waves-light media-btn"><a href="#" class="fa-icon">
+            <div class="media-btn-content">
+            <i class="fas fa-drum"></i>
+            <div class="btn-text">Drum Covers</div>
+        </div>
+        </a>
+        </li>
+      </ul>
+  </div>
+</div>
+</footer>
+<footer class="page-footer " id="footer-social">
+<div class="container">
+  <div class="row">
+    <div class="col s12 footer-social center-align">
+      <a href="https://www.facebook.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+        <i class = "fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com/dillon_estrada/" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+      <i class = "fa fa-instagram"></i></a>
+      <a href="https://twitter.com/dillondrums" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+        <i class = "fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCQNRhFoB3CSKmtHbmg6mGcQ" target="_blank" class = "btn-floating btn-large waves-effect waves-light social-button">
+          <i class = "fa fa-youtube"></i></a>
+        <a href="mailto:dillon.estrada55@gmail.com" target="_blank" data-target="modal1" class = "btn-floating btn-large waves-effect waves-light social-button modal-trigger"><i class="fa fa-envelope"></i></a>
+      </div>
+  </div>
+  </div>
+</footer>
 {% endblock %}
