@@ -22,9 +22,13 @@
     <li><a href="#!">Drum Covers</a></li>
   </ul>
 </div>
-<div class="col s12 l10 offset-s1" id="audio-col" style="max-height:70%; height: 70%">
-  <div class='embed-container'><iframe src="https://open.spotify.com/embed/playlist/2wnwpJWybTBKCXUeM1zLBD"
-      frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+<div class="col s12 l10 offset-l1" id="audio-col" style="max-height:70%; height: 70%">
+  <!-- <div class='embed-container'></div> -->
+  <div class='embed-container'>
+    <iframe id="studio-content" src="https://open.spotify.com/embed/playlist/2wnwpJWybTBKCXUeM1zLBD"
+      frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe id="original-content" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1091021287%3Fsecret_token%3Ds-RvHEA7QP96E&color=%23506b9b&auto_play=false&hide_related=false&show_comments=true&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+    </div>
 </div>
 <div class="col s12 l10 offset-l1" id="video-col" style="max-height:100%">
   <div class="vcard">
@@ -37,7 +41,7 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="page-footer " id="footer-media">
+<footer class="page-footer video-footer" id="footer-media">
   <div class="row">
 
     <div class="toolbar-fixed center-align">
@@ -70,6 +74,29 @@
             </div>
           </a>
         </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<footer class="page-footer audio-footer" id="footer-media">
+  <div class="row">
+
+    <div class="toolbar-fixed center-align">
+      <ul id="audio-btns">
+        <li class="waves-effect waves-light media-btn" id="studio"><a href="#" class="fa-icon">
+          <div class="media-btn-content">
+            <i class="fab fa-spotify"></i>
+            <div class="btn-text">Studio Work</div>
+          </div>
+        </a>
+      </li>
+      <li class="waves-effect waves-light media-btn" id="original"><a href="#" class="fa-icon">
+          <div class="media-btn-content">
+            <i class="fab fa-soundcloud"></i>
+            <div class="btn-text">Original Music</div>
+          </div>
+        </a>
+      </li>
       </ul>
     </div>
   </div>

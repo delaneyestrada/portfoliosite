@@ -29,6 +29,10 @@
     }
 }
 
+.audio-footer, .video-footer {
+    opacity: 0;
+}
+
 #audio-col {
     display: none;
     padding-top: 2vh;
@@ -171,7 +175,7 @@ nav .brand-logo {
     z-index: 1;
     margin: auto;
     opacity: 1;
-    background: url("{{ url_for('static', filename='assets/play-button.svg') }}") center center / cover;
+    background: url("/static/assets/play-button.svg") center center / cover;
     cursor: pointer;
     transition: opacity 0.3s ease-out;
 }
@@ -343,7 +347,8 @@ li.media-btn>a.custom {
 }
 
 li.media-btn>a .fa,
-li.media-btn>a .fas {
+li.media-btn>a .fas,
+li.media-btn>a .fab {
     display: block;
     font-size: 2.2rem;
     height: 2.2rem;
