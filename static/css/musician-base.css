@@ -79,7 +79,7 @@
 }
 
 #bio-panel {
-    background-color: var(--space-cadet);
+    background-color: hsla(229, 32%, 26%, .7);
 }
 
 .page-footer {

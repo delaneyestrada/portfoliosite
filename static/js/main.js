@@ -1,4 +1,5 @@
 let touch = null;
+
 if ("ontouchstart" in document.documentElement) {
 	touch = true
 } else {
@@ -43,9 +44,10 @@ if ("ontouchstart" in document.documentElement) {
 	} else if (window.location.pathname == '/musician') {
 		let mobileCurrentPageLink = document.querySelector(".sidenav > li > a[href='./musician']");
 		mobileCurrentPageLink.style.backgroundColor = 'rgba(0,0,0,0.05)';
-
+		
 		background = "musician"
 		document.querySelector('#nav-bio-btn').classList.add("active");
+		
 		gsap.to(".animate-link", {
 			duration: 2,
 			textShadow: "1px 1px 5px #EF8354",
@@ -73,7 +75,9 @@ if ("ontouchstart" in document.documentElement) {
 		document.querySelector('#nav-media-btn').classList.add("active");
 		let mobileCurrentPageLink = document.querySelector(".sidenav > li > a[href='./media']");
 		mobileCurrentPageLink.style.backgroundColor = 'rgba(0,0,0,0.05)';
+		
 
+		
 		// Variables
 		let player,
 			card = document.querySelector('.vcard'),
@@ -111,6 +115,7 @@ if ("ontouchstart" in document.documentElement) {
 						y: '15vw'
 					}, {
 						duration: 1.2,
+						display: "block",
 						ease: "elastic.out(.8, 0.4)",
 						opacity: 1,
 						y: '0'
@@ -118,7 +123,8 @@ if ("ontouchstart" in document.documentElement) {
 					gsap.to(altFooterSelect, {
 						duration: .2,
 						opacity: 0,
-						y: '0'
+						y: '0',
+						display: "none"
 					});
 				})
 			}
@@ -130,6 +136,7 @@ if ("ontouchstart" in document.documentElement) {
 			let btn = btnElems[i];
 			btn.addEventListener('click', function () {
 				let dropdownId = btn.parentNode.id;
+				console.log(dropdownId)
 				let n = dropdownId.indexOf('-');
 				let containerId = dropdownId.substring(0, n != -1 ? n : dropdownId.length) + '-col';
 				let btnContent = btn.innerText;
@@ -143,6 +150,7 @@ if ("ontouchstart" in document.documentElement) {
 
 				if (dropdownId == "video-drop" || dropdownId == "video-btns") {
 					container.previousElementSibling.style.display = "none";
+					console.log('test')
 					card.style.background = "#000 url('" + backgroundUrl + "') center center / cover";
 					if (video.style.display == "block") {
 						video.style.display = "none";
@@ -150,15 +158,21 @@ if ("ontouchstart" in document.documentElement) {
 					};
 					video.firstChild.src = 'https://www.youtube.com/embed?listType=playlist&list=' + playlistMap[btnContent] + '&amp;enablejsapi=1&amp;html5=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;modestbranding=1&amp;controls=0"'
 				} else if (dropdownId == "audio-drop" || dropdownId == "audio-btns") {
+					studioContent = document.querySelector("#studio-content");
+					originalContent = document.querySelector("#original-content")
+					
 					container.nextElementSibling.style.display = "none";
-					let altBtn;
-					if (btn.id == "original") {
-						altBtn = "#studio-content"
-					} else if (btn.id == "studio") {
-						altBtn = "#original-content"
+					if (btn.style.display == "none"){
+						btn.style.diplay = "block";
+						console.log(test)
 					};
-					document.querySelector(altBtn).style.display = "none";
-					document.querySelector("#" + btn.id).style.display = "block";
+					if (btnContent == "Studio Work") {
+						originalContent.style.display = "none";
+						studioContent.style.display = "block";
+					} else if (btnContent == "Original Music") {
+						studioContent.style.display = "none";
+						originalContent.style.display = "block"
+					};
 				}
 			})
 		};
@@ -221,8 +235,6 @@ if ("ontouchstart" in document.documentElement) {
 		for (i = 0; i < elems.length; i++) {
 			M.Tooltip.getInstance(elems[i]).open();
 		};
-
-
 	});
 
 	/* LIST OF MATERIALIZE COMPONENTS NEEDING INITIALIZATION */
