@@ -23,6 +23,9 @@
     background: transparent;
     font-family: 'Roboto', sans-serif;
 }
+html {
+    scroll-snap-type: y proximity;
+}
 
 a {
     color: inherit;
@@ -47,7 +50,10 @@ h3 {
     text-decoration-color: var(--secondary-light);
     text-decoration-skip: edges;
 }
-
+section {
+    height: 100%;
+    scroll-snap-align: start;
+}
 section>h3 {
     margin-top: 5px;
     line-height: 125%
@@ -105,6 +111,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     padding: 0;
+    border-right: 3px solid hsla(37, 98%, 62%, 0.616)
 } 
 
 .nav-item >.nav-item-footer, .nav-item > .nav-item-header  {
@@ -164,8 +171,8 @@ a:hover {
     font-family: 'Roboto', sans-serif
 }
 .card {
-    background-color: var(--tertiary-dark);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .container {

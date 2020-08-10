@@ -1,7 +1,9 @@
 $(document).ready(function(){
-  $('.scrollspy').scrollSpy();
+  // Initialize MaterializeCSS components
+  $('.scrollspy').scrollSpy({scrollOffset: 0, activeClass: 'scrollspy-active'});
   
   // Event listeners
+
 });
 
 
