@@ -1,21 +1,104 @@
 {% extends "base.html" %}
 {% block content %}
-        <div class="col s12 vcenter-wrapper" style="height:100%;padding:0">
-            <div id="particles-js"></div>
-<div class="center-align vcenter content" id="title-container">
-    <div id="title">
-        <h1 class="title-text">Dillon Estrada</h1>
+<div class="container">
+<div class="row">
+    <div class="col s1 z-depth-4" id="side-nav">
+
+            <div class="nav-items center-align" id="nav-items">
+                <a href="#home">
+                    <li class="nav-item">
+                        <i class="nav-icon material-icons">home</i>
+                    <div class="nav-item-footer">HOME</div>
+                </li>
+                </a>
+                <a href="#about">
+                    <li class="nav-item">
+                        <div class="nav-item-header"></div>
+                        <i class="nav-icon material-icons">library_books</i>
+                        <div class="nav-item-footer">ABOUT</div>
+                    </li>
+                </a>
+                <a href="#projects">
+                    <li class="nav-item">
+                        <i class="nav-icon material-icons">code</i>
+                    <div class="nav-item-footer">PROJECTS</div>
+                    </li>
+                </a>
+                <a href="#contact">
+                    <li class="nav-item">
+                        <i class="nav-icon material-icons">email</i>
+                    <div class="nav-item-footer">CONTACT</div>
+                    </li>
+                </a>
+
+            </div>
     </div>
-    <div class="tooltipped" data-position="bottom" data-tooltip="Which info do you want to see?" style="padding:12px">
+    <div class="col s11 offset-s1" id="content">
+ <section class="scrollspy" id="home">
+<div class="row">
+    <div class="col s12">
+        <div id="header">
+            <div class="header-container">
+        <h1 class="center-align" id="title"><div class="z-depth-3 code-block">&lt;Hello<span class="code-block-slash">/</span>&gt;<span class="code-block-cursor">|</span></div>My name is Dillon Estrada</h1>
+        <h3 class="center-align" id="subtitle">This is my web development portfolio</h3>
+        <h6 class="center-align" id="music-site"><em><a href="#">Click here for my music website</a></em></h6>
+    </div>
+    </div>
+    </div>
+</div>
+ </section>
+<section class="scrollspy" id="about">
+    <h3 class="center-align section-header">About</h3>
+<div class="row">
+    <div class="col s6 offset-s1">
+        
+        <div class="card">
+            <div class="card-content">
+              <span class="card-title"><em>Bio</em></span>
+              <p style="margin-bottom:5px;">I am a full-stack web developer with a love for creating websites and apps that are streamlined to reach a goal.</p><p>As a professional musician I am aware of the importance of tools that don't get in the way of your process, and that is what I hope to provide.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-content">
+        <span class="card-title"><em>What I Offer</em></span>
         <ul>
-            <li>
-                <a href="./musician" class="selector" id="music-selector">Musician</a>
-            </li>
-            <li>
-                <a href="./developer" class="selector" id="programmer-selector">Developer</a>
-            </li>
+            <li class="offering-header">Responsiveness</li>
+            <li><small>Care is used in making sure that each website will be able to be enjoyed on any screen size.</small></li>
+            <li class="offering-header">Fast loading times</li>
+            <li><small>Code is efficient and resources optimized.</small></li>
+            <li class="offering-header">SEO optimization</li>
+            <li><small>Search Engine Optimization is important for making sure a website will be displayed in search results, and I make sure to factor it into design decisions from step one.</small></li>
         </ul>
     </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="scrollspy" id="projects">
+    <h3 class="center-align section-header">Projects</h3>
+<div class="row">
+    <div class="col s10 offset-s1">
+        
+        <!-- FIGURE OUT HOW TO MAKE IMAGES RESPONSIVE -->
+    </div>
+</div>
+</section>
+
+<section class="scrollspy" id="contact">
+    <h3 class="center-align section-header">Contact</h3>
+<div class="row">
+    <div class="col s12">
+        <div class="iframe-responsive-container">
+        <iframe class="iframe-responsive" id="contact-form" src="https://docs.google.com/forms/d/e/1FAIpQLScCHyJACKnJDAl3X2NUD3j9d7Z5RQvU1vqe2z1YgNUrPnlUwA/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
     </div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
 {% endblock %}
