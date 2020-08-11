@@ -103,6 +103,35 @@ a:hover {
     color: var(--primary);
 }
 
+.project-card-row {
+    margin-bottom: 0;
+}
+.project-card-row > .col {
+    padding: 0;
+}
+.project-card-row > .col > .img-container {
+    height: 27%;
+    width: 48%;
+    margin: 0;
+    
+}
+
+.flex-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.card-img {
+    height: auto;
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
 #side-nav {
     height: 100%;
     background-color: white;
