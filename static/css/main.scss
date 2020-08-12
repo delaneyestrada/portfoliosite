@@ -1,23 +1,23 @@
 /* GLOBAL */
 
-$white: #e5e5e5ff;
-$black: #0e1111;
-$primary: #fca311ff;
-$primary-light: #fdb53f;
-$primary-dark: #D78703;
-$secondary: #116AFC;
-$secondary-dark: #0353D7;
-$secondary-light: #4f91fd;
+    $white: #fafafa;
+    $black: #0e1111;
+    $primary: #fca311ff;
+    $primary-light: #fdb53f;
+    $primary-dark: #D78703;
+    $secondary: #116AFC;
+    $secondary-dark: #0353D7;
+    $secondary-light: #4f91fd;
 
-$tertiary: #596983;
-$tertiary-light: #d9e7ff;
-$tertiary-dark: #131922;
+    $tertiary: #596983;
+    $tertiary-light: #d9e7ff;
+    $tertiary-dark: #131922;
 
 $pathway-gothic: 'Pathway Gothic One',
 sans-serif;
 $roboto: 'Roboto', sans-serif;
 
-$num-projects: 4;
+// $num-projects: 4;
 $ratio-percent: 56.25%;
 
 * {
@@ -30,7 +30,10 @@ $ratio-percent: 56.25%;
     background: transparent;
     font-family: $roboto;
 }
-
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
 @keyframes show-hide {
     0% {
         opacity: 0%;
@@ -69,14 +72,14 @@ $ratio-percent: 56.25%;
         margin-right: auto;
         display: grid;
         grid-template-columns: auto 320px auto;
-        grid-template-rows: auto;
+        grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
         grid-template-areas: 
         ". header ."
         ". content ."
-        ". proj1 ."
-        ". proj2 ."
-        ". proj3 ."
-        ". proj4 ."
+        ". projects ."
+        ". projects ."
+        ". projects ."
+        ". projects ."
         ;
     }
     .img-container .overlay {
@@ -96,14 +99,14 @@ $ratio-percent: 56.25%;
         margin-right: auto;
         display: grid;
         grid-template-columns: auto 320px auto;
-        grid-template-rows: auto;
+        grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
         grid-template-areas: 
         ". header ."
         ". content ."
-        ". proj1 ."
-        ". proj2 ."
-        ". proj3 ."
-        ". proj4 ."
+        ". projects ."
+        ". projects ."
+        ". projects ."
+        ". projects ."
         ;
     }
     .fixed-action-btn {
@@ -120,20 +123,23 @@ $ratio-percent: 56.25%;
 }
 
 @media (min-width: 768px) {
+    .nav-item-footer {
+        display: block;
+    }
     #nav-items {
         font-size: .8em;
     }
-    #content>section#projects {
+    #content>section[id=projects] {
         margin-left: auto;
         margin-right: auto;
         display: grid;
         grid-template-columns: auto 320px 320px auto;
-        grid-template-rows: auto;
+        grid-template-rows: 1fr 1fr 4fr 4fr;
         grid-template-areas:
             ". header header ."
             ". content content ."
-            ". proj1 proj2 ."
-            ". proj3 proj4 .";
+            ". projects projects ."
+            ". projects projects .";
     }
     .fixed-action-btn {
         display: none;
@@ -156,6 +162,17 @@ $ratio-percent: 56.25%;
     .fixed-action-btn {
         display: none;
     }
+    div.row > #content > section#projects {
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: auto 320px 320px 30% auto;
+        grid-template-rows: 1fr 4fr 4fr;
+        grid-template-areas: 
+        ". header header header ."
+        ". projects projects content ."
+        ". projects projects content .";
+    }
 }
 
 @media (min-width: 1200px) {
@@ -167,6 +184,15 @@ $ratio-percent: 56.25%;
 /* TAGS */
 html {
     scroll-snap-type: y proximity;
+}
+
+small {
+    font-size: 90%;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 2em;
 }
 
 a {
@@ -233,7 +259,9 @@ section:not(:first-of-type) {
 }
 
 .card-title {
-    font-family: 'Roboto', sans-serif
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600 !important;
+    margin-bottom: 1em !important;
 }
 
 .card {
@@ -244,10 +272,13 @@ section:not(:first-of-type) {
 /* SECTIONS */
 section {
     scroll-snap-align: start;
+    min-height: 50vh;
     h3 {
         font-family: $pathway-gothic;
         margin-top: 5px;
-    line-height: 125%
+        line-height: 110%;
+        font-size: 4em;
+        font-weight: 900;
     }
 }
 
@@ -311,8 +342,12 @@ section#home {
 }
 
 /* NAV */
+.toggle-container{
+    display: none !important;
+}
 #nav-items {
     width: 100%;
+    align-self: center;
 }
 
 #nav-items>a {
@@ -329,10 +364,11 @@ section#home {
     background-color: white;
     position: fixed;
     display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-right: 1.5px solid hsla(37, 98%, 62%, 0.616);
     justify-content: center;
     align-items: center;
-    padding: 0;
-    border-right: 1.5px solid hsla(37, 98%, 62%, 0.616)
 }
 
 .nav-item>.nav-item-footer,
@@ -358,27 +394,92 @@ section#home {
     border-bottom: $primary-dark 1px solid;
 }
 
+/* DARK MODE TOGGLE */
+#side-nav {
+    .toggle-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+    }
+    i {
+        margin-bottom: 10px;
+    }
+    input[type=checkbox]{
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+    
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 52px;
+        height: 27px;
+        background: grey;
+        float: right;
+        border-radius: 100px;
+        position: relative;
+    }
+    
+    label:after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        background: #faf;
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+    
+    input:checked + label {
+        background: $tertiary-dark
+    }
+    
+    input:checked + label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
+    
+    label:active:after {
+        width: 45px;
+    }
+}
+
 /* PROJECT SECTION */
 section#projects {
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: auto 320px 320px 200px auto;
-    grid-template-rows: auto;
+    grid-template-rows: 2fr 4fr 4fr;
     grid-template-areas: 
     ". header header header ."
-    ". proj1 proj2 content ."
-    ". proj3 proj4 content .";
+    ". projects projects content ."
+    ". projects projects content .";
 }
 
-@for $i from 1 through $num-projects {
-    .img-container:nth-of-type(#{$i}) {
-        grid-area: proj+$i;
-        // justify-self: end;
-    }
+// @for $i from 1 through $num-projects {
+//     .img-container:nth-of-type(#{$i}) {
+//         grid-area: proj+$i;
+//         // justify-self: end;
+//     }
+// }
+
+#projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: projects;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
 }
 
 #projects-card {
+    align-self: center;
     grid-area: content;
     margin: 0;
 }
@@ -398,6 +499,9 @@ section#projects {
 .img-container {
     overflow: hidden;
     position: relative;
+    height: 180px;
+    width: 320px;
+    align-self: center;
 }
 .overlay {
     height: 100%;
@@ -457,9 +561,20 @@ section#about {
     font-size: 1.7em;
 }
 
+
+
 .offering-header {
     font-weight: bold;
+    font-size: 1.2em;
     justify-content: start;
+}
+
+.offering-icon {
+    font-size: 3em;
+    color: $secondary-light
+}
+.offering {
+    margin-bottom: 2em;
 }
 
 #bio-card {

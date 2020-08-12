@@ -10,6 +10,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
 @keyframes show-hide {
   0% {
     opacity: 0%;
@@ -42,8 +47,8 @@
     margin-right: auto;
     display: grid;
     grid-template-columns: auto 320px auto;
-    grid-template-rows: auto;
-    grid-template-areas: ". header ." ". content ." ". proj1 ." ". proj2 ." ". proj3 ." ". proj4 .";
+    grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
+    grid-template-areas: ". header ." ". content ." ". projects ." ". projects ." ". projects ." ". projects .";
   }
 
   .img-container .overlay {
@@ -62,8 +67,8 @@
     margin-right: auto;
     display: grid;
     grid-template-columns: auto 320px auto;
-    grid-template-rows: auto;
-    grid-template-areas: ". header ." ". content ." ". proj1 ." ". proj2 ." ". proj3 ." ". proj4 .";
+    grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
+    grid-template-areas: ". header ." ". content ." ". projects ." ". projects ." ". projects ." ". projects .";
   }
 
   .fixed-action-btn {
@@ -77,17 +82,21 @@
   }
 }
 @media (min-width: 768px) {
+  .nav-item-footer {
+    display: block;
+  }
+
   #nav-items {
     font-size: 0.8em;
   }
 
-  #content > section#projects {
+  #content > section[id=projects] {
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: auto 320px 320px auto;
-    grid-template-rows: auto;
-    grid-template-areas: ". header header ." ". content content ." ". proj1 proj2 ." ". proj3 proj4 .";
+    grid-template-rows: 1fr 1fr 4fr 4fr;
+    grid-template-areas: ". header header ." ". content content ." ". projects projects ." ". projects projects .";
   }
 
   .fixed-action-btn {
@@ -111,6 +120,15 @@
   .fixed-action-btn {
     display: none;
   }
+
+  div.row > #content > section#projects {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto 320px 320px 30% auto;
+    grid-template-rows: 1fr 4fr 4fr;
+    grid-template-areas: ". header header header ." ". projects projects content ." ". projects projects content .";
+  }
 }
 @media (min-width: 1200px) {
   .fixed-action-btn {
@@ -120,6 +138,15 @@
 /* TAGS */
 html {
   scroll-snap-type: y proximity;
+}
+
+small {
+  font-size: 90%;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 2em;
 }
 
 a {
@@ -179,21 +206,26 @@ section:not(:first-of-type) {
 
 .card-title {
   font-family: "Roboto", sans-serif;
+  font-weight: 600 !important;
+  margin-bottom: 1em !important;
 }
 
 .card {
-  background-color: #e5e5e5ff;
+  background-color: #fafafa;
   color: #0e1111;
 }
 
 /* SECTIONS */
 section {
   scroll-snap-align: start;
+  min-height: 50vh;
 }
 section h3 {
   font-family: "Pathway Gothic One", sans-serif;
   margin-top: 5px;
-  line-height: 125%;
+  line-height: 110%;
+  font-size: 4em;
+  font-weight: 900;
 }
 
 /* HEADER SECTION */
@@ -247,8 +279,13 @@ section#home {
 }
 
 /* NAV */
+.toggle-container {
+  display: none !important;
+}
+
 #nav-items {
   width: 100%;
+  align-self: center;
 }
 
 #nav-items > a {
@@ -265,10 +302,11 @@ section#home {
   background-color: white;
   position: fixed;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   padding: 0;
   border-right: 1.5px solid rgba(253, 180, 63, 0.616);
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-item > .nav-item-footer,
@@ -293,33 +331,75 @@ section#home {
   border-bottom: #D78703 1px solid;
 }
 
+/* DARK MODE TOGGLE */
+#side-nav .toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+}
+#side-nav i {
+  margin-bottom: 10px;
+}
+#side-nav input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+#side-nav label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: grey;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+#side-nav label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #faf;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+#side-nav input:checked + label {
+  background: #131922;
+}
+#side-nav input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+#side-nav label:active:after {
+  width: 45px;
+}
+
 /* PROJECT SECTION */
 section#projects {
   margin-left: auto;
   margin-right: auto;
   display: grid;
   grid-template-columns: auto 320px 320px 200px auto;
-  grid-template-rows: auto;
-  grid-template-areas: ". header header header ." ". proj1 proj2 content ." ". proj3 proj4 content .";
+  grid-template-rows: 2fr 4fr 4fr;
+  grid-template-areas: ". header header header ." ". projects projects content ." ". projects projects content .";
 }
 
-.img-container:nth-of-type(1) {
-  grid-area: proj1;
-}
-
-.img-container:nth-of-type(2) {
-  grid-area: proj2;
-}
-
-.img-container:nth-of-type(3) {
-  grid-area: proj3;
-}
-
-.img-container:nth-of-type(4) {
-  grid-area: proj4;
+#projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: projects;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
 }
 
 #projects-card {
+  align-self: center;
   grid-area: content;
   margin: 0;
 }
@@ -340,6 +420,9 @@ section#projects {
 .img-container {
   overflow: hidden;
   position: relative;
+  height: 180px;
+  width: 320px;
+  align-self: center;
 }
 
 .overlay {
@@ -399,7 +482,17 @@ section#about {
 
 .offering-header {
   font-weight: bold;
+  font-size: 1.2em;
   justify-content: start;
+}
+
+.offering-icon {
+  font-size: 3em;
+  color: #4f91fd;
+}
+
+.offering {
+  margin-bottom: 2em;
 }
 
 #bio-card {

@@ -14,7 +14,13 @@
       </div>
     <div class="row">
         <div class="col m1 z-depth-4" id="side-nav">
-
+            <div class="toggle-container">
+                <i class="fas fa-adjust"></i>
+                <div class="toggle">
+                <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
+                </div>
+            </div>
+            
             <div class="nav-items center-align" id="nav-items">
                 <a href="#home">
                     <li class="nav-item">
@@ -69,10 +75,10 @@
 
  
 
-                        <div class="card" id="bio-card">
+                        <div class="card center-align" id="bio-card">
                             <div class="card-content">
-                                <span class="card-title"><em>Bio</em></span>
-                                <p style="margin-bottom:5px;">I am a full-stack web developer with a love for creating
+                                <span class="card-title"<em>Who I Am</span>
+                                <p style="margin-bottom:5px;">I am a full-stack web developer based in Austin, Texas with a love for creating
                                     websites and apps that are streamlined to reach a goal.</p>
                                 <p>Also being a professional musician, I am aware of the importance of tools that don't get in
                                     the way of your process; and that is what I hope to provide.</p>
@@ -80,22 +86,26 @@
                         </div>
                     
 
-                        <div class="card" id="offerings-card">
+                        <div class="card center-align" id="offerings-card">
                             <div class="card-content">
-                                <span class="card-title"><em>What I Offer</em></span>
+                                <span class="card-title">What I Offer</span>
                                 <ul>
-                                    <li class="offering-header">Responsiveness</li>
-                                    <li><small>Care is used in making sure that each website will be able to be enjoyed
-                                            on any screen size.</small></li>
-                                    <li class="offering-header">Fast loading times</li>
-                                    <li><small>Code is efficient and resources optimized.</small></li>
-                                    <li class="offering-header">SEO optimization</li>
-                                    <li><small>Search Engine Optimization is important for making sure a website will be
-                                            displayed in search results, and I make sure to factor it into design
-                                            decisions from step one.</small></li>
+                                    <div class="offering">
+                                        <i class="offering-icon fas fa-tachometer-alt"></i>
+                                    <li class="offering-header">Fast</li>
+                                    <li><small>Fast load times and lag free interaction, my highest priority.</small></li>
+                                </div>
+                                    <div class="offering">
+                                        <i class="offering-icon fas fa-mobile-alt"></i>
+                                    <li class="offering-header">Responsive</li>
+                                    <li><small>My layouts will work on any device, big or small.</small></li>
+                                    </div>
+                                    <div class="offering">
+                                    
+                                    <i class="offering-icon fas fa-cloud-download-alt"></i>
                                     <li class="offering-header">Dynamic</li>
-                                    <li><small>Website can be built to display information that updates
-                                            dynamically.</small></li>
+                                    <li><small>Websites don't have to be static, I love making pages come to life. </small></li>
+                                </div>
                                 </ul>
                             </div>
                         </div>
@@ -113,9 +123,9 @@
             <section class="scrollspy" id="projects">
                 <h3 id="project-header" class="center-align section-header">PROJECTS</h3>
                         
-                            
+                            <div id="projects-container">
                                 <div class="img-container">
-                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/abstract"/>
+                                    <img class="card-img responsive-img" src="https://via.placeholder.com/320x180/A0A0A0/808080?text=There's"/>
                                     <div class="overlay">
                                         <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
                                         <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
@@ -123,7 +133,7 @@
                                 </div>
                             
                                 <div class="img-container">
-                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/technics"/>
+                                    <img class="card-img responsive-img" src="https://via.placeholder.com/320x180/C0C0C0/808080?text=nothing"/>
                                     <div class="overlay">
                                         <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
                                         <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
@@ -132,7 +142,7 @@
                         
                         
                                 <div class="img-container">
-                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/food"/>
+                                    <img class="card-img responsive-img" src="https://via.placeholder.com/320x180/F0F0F0/808080?text=here"/>
                                     <div class="overlay">
                                         <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
                                         <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
@@ -141,18 +151,19 @@
                             
                                 
                                 <div class="img-container">
-                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/animals"/>
+                                    <img class="card-img responsive-img" src="https://via.placeholder.com/320x180/F5F5F5/808080?text=:("/>
                                     <div class="overlay">
                                         <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
                                         <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
                                     </div>
                                 </div>
+                            </div>
                                 
 
                                 <div class="card" id="projects-card">
                                     <div class="card-content">
                                         <span class="card-title"><em>Info</em></span>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, quisquam odio nobis eveniet similique dolores aperiam tenetur nihil tempore a esse ipsa perferendis iusto fugit eius. Quam vitae iure debitis!</p>
+                                        <p>As you can probably tell, there are currently no projects here. That means I'm in need of sites to feature. Contact me using the form down below and give me something to show off!</p>
                                     </div>
                                 </div>
                         
