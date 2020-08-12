@@ -44,7 +44,7 @@
                                             class="code-block-slash">/</span>&gt;<span
                                             class="code-block-cursor">|</span></div>My name is Dillon Estrada
                                 </h1>
-                                <h3 class="center-align" id="subtitle">This is my web development portfolio</h3>
+                                <h4 class="center-align" id="subtitle">This is my web development portfolio</h4>
                                 <h6 class="center-align" id="music-site"><em><a href="#">Click here for my music
                                             website</a></em></h6>
                             </div>
@@ -53,22 +53,23 @@
                 </div>
             </section>
             <section class="scrollspy" id="about">
-                <h3 class="center-align section-header">About</h3>
-                <div class="row">
-                    <div class="col s6 offset-s1">
 
-                        <div class="card">
+                <h3 id="about-header" class="center-align section-header">ABOUT</h3>
+
+ 
+
+                        <div class="card" id="bio-card">
                             <div class="card-content">
                                 <span class="card-title"><em>Bio</em></span>
                                 <p style="margin-bottom:5px;">I am a full-stack web developer with a love for creating
                                     websites and apps that are streamlined to reach a goal.</p>
-                                <p>As a professional musician I am aware of the importance of tools that don't get in
-                                    the way of your process, and that is what I hope to provide.</p>
+                                <p>Also being a professional musician, I am aware of the importance of tools that don't get in
+                                    the way of your process; and that is what I hope to provide.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col s4">
-                        <div class="card">
+                    
+
+                        <div class="card" id="offerings-card">
                             <div class="card-content">
                                 <span class="card-title"><em>What I Offer</em></span>
                                 <ul>
@@ -87,53 +88,95 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                        <div class="" id="social-container">
+                            <div class="social-header center-align">SOCIAL LINKS</div>
+                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://github.com/dillonestrada"><i class="fa fa-github left"></i>Github</a>
+                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://www.linkedin.com/in/dillonestrada/"><i class="fab fa-linkedin-in left"></i>LinkedIn</a>
+                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://www.instagram.com/dillon_estrada/"><i class="fab fa-instagram left"></i>Instagram</a>
+                        </div>
+               
+
             </section>
 
             <section class="scrollspy" id="projects">
-                <h3 class="center-align section-header">Projects</h3>
-                <div class="row">
-                    <div class="col s10 offset-s1">
-                        <div class="row project-card-row">
-                            <div class="col s12 flex-container">
+                <h3 id="project-header" class="center-align section-header">PROJECTS</h3>
+                        
+                            
                                 <div class="img-container">
-                                    <img class="card-img" src="http://lorempixel.com/1280/720/abstract"/>
+                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/abstract"/>
+                                    <div class="overlay">
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                                    </div>
                                 </div>
                             
                                 <div class="img-container">
-                                    <img class="card-img" src="http://lorempixel.com/1280/720/technics"/>
+                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/technics"/>
+                                    <div class="overlay">
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                                    </div>
                                 </div>
                         
                         
                                 <div class="img-container">
-                                    <img class="card-img" src="http://lorempixel.com/1280/720/food"/>
+                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/food"/>
+                                    <div class="overlay">
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                                    </div>
                                 </div>
                             
                                 
                                 <div class="img-container">
-                                    <img class="card-img" src="http://lorempixel.com/1280/720/animals"/>
+                                    <img class="card-img responsive-img" src="http://lorempixel.com/320/180/animals"/>
+                                    <div class="overlay">
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                                    </div>
                                 </div>
                                 
-                            </div>
-                            </div>
+
+                                <div class="card" id="projects-card">
+                                    <div class="card-content">
+                                        <span class="card-title"><em>Info</em></span>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, quisquam odio nobis eveniet similique dolores aperiam tenetur nihil tempore a esse ipsa perferendis iusto fugit eius. Quam vitae iure debitis!</p>
+                                    </div>
+                                </div>
                         
                         
-                        <!-- FIGURE OUT HOW TO MAKE IMAGES RESPONSIVE -->
-                    </div>
-                </div>
+
+                    
             </section>
 
             <section class="scrollspy" id="contact">
-                <h3 class="center-align section-header">Contact</h3>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="iframe-responsive-container">
-                            <iframe class="iframe-responsive" id="contact-form"
-                                src="https://docs.google.com/forms/d/e/1FAIpQLScCHyJACKnJDAl3X2NUD3j9d7Z5RQvU1vqe2z1YgNUrPnlUwA/viewform?embedded=true"
-                                width="640" height="677" frameborder="0" marginheight="0"
-                                marginwidth="0">Loading…</iframe>
+                <h3 class="center-align section-header">CONTACT</h3>
+                <h5 class="center-align content-subtitle">I would love to work with you. Get in touch through this form or any of my social media accounts and I will get back to you as soon as possible!</h5>
+                        
+            <div class="row">
+                <form class="col m8 offset-m2 s12" action="/contact" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" name="name" type="text">
+                            <label for="name">Name</label>
                         </div>
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="email" class="form-input">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                          <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                          <label for="message">Message</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m12">
+                         <p class="right-align"><button class="btn btn-large waves-effect waves-light" type="submit" name="action">Send Message</button></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
                     </div>
                 </div>
             </section>
