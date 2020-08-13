@@ -19,3 +19,9 @@ node_modules/
 __pycache__/
 # Ignored by the build system
 /setup.cfg
+README.md
+old_requirements.txt
+env/
+.vscode/
+Pipfile
+Pipfile.lock

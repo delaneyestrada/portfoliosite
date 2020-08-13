@@ -5,3 +5,7 @@ creds.py
 __pycache__/
 static/css/main.css
 static/css/main.css.map
+requirements.txt
+Pipfile.lock
+old_requirements.txt
+.gcloudignore

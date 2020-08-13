@@ -1,6 +1,6 @@
 /* GLOBAL */
 
-    $white: #fafafa;
+    $white: #f4f4f4;
     $black: #0e1111;
     $primary: #fca311ff;
     $primary-light: #fdb53f;
@@ -64,32 +64,59 @@ html, body {
 
 @media (max-width: 600px) {
     // Mobile
+    #projects-card {
+        height: 100% !important;
+    }
     #side-nav {
         display: none !important;
     }
     #content > section#projects {
         margin-left: auto;
         margin-right: auto;
+        height: auto;
         display: grid;
         grid-template-columns: auto 320px auto;
-        grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
+        grid-template-rows: auto auto 3fr;
         grid-template-areas: 
         ". header ."
         ". content ."
         ". projects ."
-        ". projects ."
-        ". projects ."
-        ". projects ."
         ;
+        align-content: start;
+        padding-bottom: 2em;
     }
     .img-container .overlay {
         display: flex;
         background-color: rgba(0, 0, 0, 0.445);
         opacity: 1;
     }
+    #projects-container {
+        align-self: start;
+    }
+    a[href="#home"] {
+        background-color: $primary-dark;
+    }
+    a[href="#about"] {
+        background-color: $primary;
+    }
+    a[href="#projects"] {
+        background-color: $primary-light;
+    }
+    a[href="#contact"] {
+        background-color: #ffbc51;
+    }
+    .fixed-action-btn > ul > li > a:hover {
+        background-color: $secondary;
+    }
+    .fixed-action-btn > a {
+        background-color: $black !important;
+        i {
+            color: $primary-light;
+        }
+    }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 768px) {
     // Tablet-ish
     .nav-item-footer {
         display: none;
@@ -97,20 +124,22 @@ html, body {
     #content > section#projects {
         margin-left: auto;
         margin-right: auto;
+        height: auto;
         display: grid;
         grid-template-columns: auto 320px auto;
-        grid-template-rows: 1fr 1fr 2fr 2fr 2fr 2fr;
+        grid-template-rows: 1fr 1fr 3fr;
         grid-template-areas: 
         ". header ."
         ". content ."
         ". projects ."
-        ". projects ."
-        ". projects ."
-        ". projects ."
         ;
+        align-content: start;
     }
     .fixed-action-btn {
         display: none;
+    }
+    #projects-container {
+        align-self: start;
     }
 
 
@@ -122,7 +151,7 @@ html, body {
     
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 936px){
     .nav-item-footer {
         display: block;
     }
@@ -133,21 +162,25 @@ html, body {
         margin-left: auto;
         margin-right: auto;
         display: grid;
-        grid-template-columns: auto 320px 320px auto;
-        grid-template-rows: 1fr 1fr 4fr 4fr;
+        grid-template-columns: auto 640px auto;
+        grid-template-rows: auto auto 360px;
         grid-template-areas:
-            ". header header ."
-            ". content content ."
-            ". projects projects ."
-            ". projects projects .";
+            ". header ."
+            ". content ."
+            ". projects .";
+        padding-bottom: 2em;
     }
-    .fixed-action-btn {
-        display: none;
+    #projects-card {
+        height: 100% !important;
     }
     
     .img-container .overlay {
         display: none;
         opacity: 0;
+    }
+
+    .fixed-action-btn {
+        display: none;
     }
 }
 
@@ -159,19 +192,20 @@ html, body {
     .nav-item-footer {
         font-size: 1.5em;
     }
-    .fixed-action-btn {
-        display: none;
-    }
+
     div.row > #content > section#projects {
         margin-left: auto;
         margin-right: auto;
         display: grid;
-        grid-template-columns: auto 320px 320px 30% auto;
-        grid-template-rows: 1fr 4fr 4fr;
+        grid-template-columns: auto 320px 320px 25% auto;
+        grid-template-rows: 1fr 4fr;
         grid-template-areas: 
         ". header header header ."
-        ". projects projects content ."
         ". projects projects content .";
+        padding-bottom: 4em;
+    } 
+    .fixed-action-btn {
+        display: none;
     }
 }
 
@@ -232,12 +266,14 @@ a.btn, .btn, .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus
     background-color: $secondary;
 }
 
-section:not(:first-of-type) {
+section:not(:first-of-type):not(:last-of-type) {
     margin-bottom: 4em;
     
 }
 
-
+section:nth-of-type(odd) {
+    background-color: $white;
+}
 
 .btn:hover {
     background-color: $primary-dark;
@@ -449,17 +485,17 @@ section#home {
 }
 
 /* PROJECT SECTION */
-section#projects {
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: auto 320px 320px 200px auto;
-    grid-template-rows: 2fr 4fr 4fr;
-    grid-template-areas: 
-    ". header header header ."
-    ". projects projects content ."
-    ". projects projects content .";
-}
+// section#projects {
+//     margin-left: auto;
+//     margin-right: auto;
+//     display: grid;
+//     grid-template-columns: auto 320px 320px 200px auto;
+//     grid-template-rows: 2fr 4fr 4fr;
+//     grid-template-areas: 
+//     ". header header header ."
+//     ". projects projects content ."
+//     ". projects projects content .";
+// }
 
 // @for $i from 1 through $num-projects {
 //     .img-container:nth-of-type(#{$i}) {
@@ -472,7 +508,8 @@ section#projects {
     display: flex;
     flex-wrap: wrap;
     grid-area: projects;
-    height: 100%;
+    max-height: 100%;
+    // height: 100%;
     width: 100%;
     justify-content: center;
     align-content: center;
@@ -482,6 +519,8 @@ section#projects {
     align-self: center;
     grid-area: content;
     margin: 0;
+    height: 360px;
+    width: auto;
 }
 
 #project-header {
@@ -591,6 +630,9 @@ section#about {
 #about-header {
     grid-area: header;
 }
+
+/* FOOTER */
+
 
 /* TEMP */
 .iframe-responsive-container {
