@@ -1,4 +1,8 @@
 /* GLOBAL */
+@font-face {
+  font-family: "Hoodson";
+  src: url("../assets/Hoodson free font .ttf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -37,7 +41,46 @@ html, body {
     opacity: 0;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 400px) {
+  #content > section#about {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header" "bio" "offerings" "social";
+    row-gap: 1em;
+  }
+
+  #offerings-card, #bio-card, #social-container {
+    margin: 0 1em !important;
+  }
+
+  div#mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    height: 10vh;
+    flex-direction: row;
+    z-index: 2;
+  }
+
+  #mobile-nav > #nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  #mobile-nav > #nav-items .nav-item {
+    margin: auto 2em;
+    font-size: 0.8em;
+  }
+
+  footer {
+    margin-bottom: 10vh;
+  }
+
   #projects-card {
     height: 100% !important;
   }
@@ -67,32 +110,62 @@ html, body {
   #projects-container {
     align-self: start;
   }
-
-  a[href="#home"] {
-    background-color: #D78703;
+}
+@media (min-width: 400px) and (max-width: 600px) {
+  div#mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    height: 10vh;
+    flex-direction: row;
+    z-index: 2;
   }
 
-  a[href="#about"] {
-    background-color: #fca311ff;
+  #mobile-nav > #nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  #mobile-nav > #nav-items .nav-item {
+    margin: auto 2em;
   }
 
-  a[href="#projects"] {
-    background-color: #fdb53f;
+  footer {
+    margin-bottom: 10vh;
   }
 
-  a[href="#contact"] {
-    background-color: #ffbc51;
+  #projects-card {
+    height: 100% !important;
   }
 
-  .fixed-action-btn > ul > li > a:hover {
-    background-color: #116AFC;
+  #side-nav {
+    display: none !important;
   }
 
-  .fixed-action-btn > a {
-    background-color: #0e1111 !important;
+  #content > section#projects {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 320px auto;
+    grid-template-rows: auto auto 3fr;
+    grid-template-areas: ". header ." ". content ." ". projects .";
+    align-content: start;
+    padding-bottom: 2em;
   }
-  .fixed-action-btn > a i {
-    color: #fdb53f;
+
+  .img-container .overlay {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.445);
+    opacity: 1;
+  }
+
+  #projects-container {
+    align-self: start;
   }
 }
 @media (min-width: 600px) and (max-width: 768px) {
@@ -106,9 +179,10 @@ html, body {
     height: auto;
     display: grid;
     grid-template-columns: auto 320px auto;
-    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-rows: auto;
     grid-template-areas: ". header ." ". content ." ". projects .";
     align-content: start;
+    padding-bottom: 2em;
   }
 
   .fixed-action-btn {
@@ -221,6 +295,18 @@ input:focus + label, textarea.materialize-textarea:focus + label {
 }
 
 /* CONTENT GLOBAL */
+.logo {
+  font-family: "Hoodson";
+  color: #fdb53f;
+  font-size: 2em;
+  cursor: default;
+  margin: 0.5em 1em 0.2em;
+}
+
+#mobile-nav {
+  display: none;
+}
+
 .content-subtitle {
   width: 60%;
   margin-left: auto;
@@ -294,7 +380,7 @@ section#home {
 }
 
 #header {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;

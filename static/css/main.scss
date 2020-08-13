@@ -16,9 +16,15 @@
 $pathway-gothic: 'Pathway Gothic One',
 sans-serif;
 $roboto: 'Roboto', sans-serif;
+$mobile-nav-height: 10vh;
 
 // $num-projects: 4;
 $ratio-percent: 56.25%;
+
+@font-face {
+    font-family: "Hoodson";
+    src: url('../assets/Hoodson\ free\ font\ .ttf')
+}
 
 * {
     margin: 0;
@@ -61,9 +67,45 @@ html, body {
         opacity: 0;
     }
 }
-
-@media (max-width: 600px) {
-    // Mobile
+@media (max-width: 400px){
+    #content > section#about {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "header"
+        "bio"
+        "offerings"
+        "social";
+        row-gap: 1em;
+    }
+    #offerings-card, #bio-card, #social-container {
+        margin: 0 1em !important;
+    }
+    div#mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        height: $mobile-nav-height;
+        flex-direction: row;
+        z-index: 2;
+    }
+    #mobile-nav > #nav-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        .nav-item {
+            margin: auto 2em;
+            font-size: .8em;
+        }
+    }
+    footer {
+        margin-bottom: $mobile-nav-height; 
+    }
     #projects-card {
         height: 100% !important;
     }
@@ -93,26 +135,60 @@ html, body {
     #projects-container {
         align-self: start;
     }
-    a[href="#home"] {
-        background-color: $primary-dark;
+}
+@media (min-width: 400px) and (max-width: 600px) {
+    // Mobile
+    div#mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        height: $mobile-nav-height;
+        flex-direction: row;
+        z-index: 2;
     }
-    a[href="#about"] {
-        background-color: $primary;
-    }
-    a[href="#projects"] {
-        background-color: $primary-light;
-    }
-    a[href="#contact"] {
-        background-color: #ffbc51;
-    }
-    .fixed-action-btn > ul > li > a:hover {
-        background-color: $secondary;
-    }
-    .fixed-action-btn > a {
-        background-color: $black !important;
-        i {
-            color: $primary-light;
+    #mobile-nav > #nav-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        .nav-item {
+            margin: auto 2em;
         }
+    }
+    footer {
+        margin-bottom: $mobile-nav-height; 
+    }
+    #projects-card {
+        height: 100% !important;
+    }
+    #side-nav {
+        display: none !important;
+    }
+    #content > section#projects {
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: auto 320px auto;
+        grid-template-rows: auto auto 3fr;
+        grid-template-areas: 
+        ". header ."
+        ". content ."
+        ". projects ."
+        ;
+        align-content: start;
+        padding-bottom: 2em;
+    }
+    .img-container .overlay {
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.445);
+        opacity: 1;
+    }
+    #projects-container {
+        align-self: start;
     }
 }
 
@@ -127,13 +203,14 @@ html, body {
         height: auto;
         display: grid;
         grid-template-columns: auto 320px auto;
-        grid-template-rows: 1fr 1fr 3fr;
+        grid-template-rows: auto;
         grid-template-areas: 
         ". header ."
         ". content ."
         ". projects ."
         ;
         align-content: start;
+        padding-bottom: 2em;
     }
     .fixed-action-btn {
         display: none;
@@ -255,6 +332,14 @@ input:focus+label, textarea.materialize-textarea:focus+label {
 // }
 
 /* CONTENT GLOBAL */
+.logo {
+    font-family: "Hoodson";
+    color: $primary-light;
+    font-size: 2em;
+    cursor: default;
+    margin: .5em 1em .2em;
+}
+#mobile-nav {display: none}
 
 .content-subtitle {
     width: 60%;
@@ -330,7 +415,7 @@ section#home {
 }
 
 #header {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -610,8 +695,19 @@ section#about {
 
 .offering-icon {
     font-size: 3em;
-    color: $secondary-light
+    // padding-top: .5em;
+    color: $secondary-light;
 }
+// .offering-icon-container {
+//     background-color: $tertiary;
+//     height: auto;
+//     width: 8em;
+//     margin: 0 auto;
+//     display: flex;
+//     align-content: center;
+//     justify-content: center;
+//     border-radius: 3em;
+// }
 .offering {
     margin-bottom: 2em;
 }
