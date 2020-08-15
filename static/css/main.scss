@@ -2,6 +2,7 @@
 
     $white: #f4f4f4;
     $black: #0e1111;
+    $dark: #363636;
     $primary: #fca311ff;
     $primary-light: #fdb53f;
     $primary-dark: #D78703;
@@ -20,6 +21,29 @@ $mobile-nav-height: 10vh;
 
 // $num-projects: 4;
 $ratio-percent: 56.25%;
+:root {
+    --color-page-background: #{$white};
+    --color-page-background-offset: #{darken($white, 20%)};
+    --color-text: #{$black};
+}
+
+[data-theme="dark"]{
+    --color-page-background: #{$dark};
+    --color-page-background-offset: #{darken($dark, 2%)};
+    --card-background: #{darken($dark, 4%)};
+    --color-text: #{$white};
+    #header-background {
+        filter: invert(.8);
+        -webkit-filter: invert(.8);
+    }
+}
+
+body {
+    background-color: var(--color-page-background) !important;
+    color: var(--color-text) !important;
+}
+
+
 
 @font-face {
     font-family: "Hoodson";
@@ -311,7 +335,7 @@ a {
 }
 
 a:hover {
-    color: $black;
+    color: var(--color-text);
 }
 
 h5 {
@@ -321,6 +345,7 @@ h5 {
 input:focus, textarea.materialize-textarea:focus {
     border-bottom: 1px solid $primary-light !important;
     box-shadow: 0 0 1px 0 $primary-light !important;
+    color: var(--color-text);
 }
 
 input:focus+label, textarea.materialize-textarea:focus+label {
@@ -357,7 +382,7 @@ section:not(:first-of-type):not(:last-of-type) {
 }
 
 section:nth-of-type(odd) {
-    background-color: $white;
+    background-color: var(--color-page-background-offset);
 }
 
 .btn:hover {
@@ -386,8 +411,8 @@ section:nth-of-type(odd) {
 }
 
 .card {
-    background-color: $white;
-    color: $black;
+    background-color: var(--card-background);
+    color: var(--color-text);
 }
 
 /* SECTIONS */
@@ -407,7 +432,17 @@ section {
 section#home {
     height: 100%; 
     width: 100%;
-    background-image: url(/static/img/background.png)
+    background: transparent;
+}
+#header-background {
+    background-image: url(/static/img/background.png);
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -2;
 }
 
 .section-header {
@@ -423,8 +458,7 @@ section#home {
 }
 
 #subtitle {
-    color: $black;
-    
+    color: var(--color-text);
 }
 
 #music-site {
@@ -463,9 +497,6 @@ section#home {
 }
 
 /* NAV */
-.toggle-container{
-    display: none !important;
-}
 #nav-items {
     width: 100%;
     align-self: center;
@@ -482,7 +513,7 @@ section#home {
 
 #side-nav {
     height: 100%;
-    background-color: white;
+    background-color: var(--color-page-background);
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -497,6 +528,7 @@ section#home {
     font-family: $pathway-gothic;
     font-size: 1.5em;
     width: 100%;
+    letter-spacing: 1px;
 }
 
 .nav-item {
@@ -522,9 +554,22 @@ section#home {
         flex-direction: column;
         align-items: center;
         font-size: 1.5em;
+        align-self: center;
+        margin-top: 2em;
+        .mode-label {
+            font-size: .7em;
+            font-family: $pathway-gothic;
+            letter-spacing: .1em;
+        };
+        #mode {
+            font-family: inherit;
+        }
+        i {
+            // display: none;
+        };
     }
     i {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     input[type=checkbox]{
         height: 0;
@@ -537,7 +582,7 @@ section#home {
         text-indent: -9999px;
         width: 52px;
         height: 27px;
-        background: grey;
+        background: var(--color-page-background-offset);
         float: right;
         border-radius: 100px;
         position: relative;
@@ -550,7 +595,7 @@ section#home {
         left: 3px;
         width: 20px;
         height: 20px;
-        background: #faf;
+        background: $primary;
         border-radius: 90px;
         transition: 0.3s;
     }

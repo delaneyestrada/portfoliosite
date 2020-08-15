@@ -14,13 +14,6 @@
       </div> -->
     <div class="row">
         <div class="col m1 z-depth-4" id="side-nav">
-            <div class="toggle-container">
-                <i class="fas fa-adjust"></i>
-                <div class="toggle">
-                <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
-                </div>
-            </div>
-            
             <div class="nav-items center-align" id="nav-items">
                 <a href="#home">
                     <li class="nav-item">
@@ -47,7 +40,14 @@
                         <div class="nav-item-footer">CONTACT</div>
                     </li>
                 </a>
+            </div>
 
+            <div class="toggle-container">
+                <i class="fas fa-adjust"></i>
+                <div class="toggle">
+                <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
+                </div>
+                <small class="mode-label"><span id="mode">Light</span> Mode</small>
             </div>
         </div>
         <div class="z-depth-4" id="mobile-nav">
@@ -92,6 +92,7 @@
                 <div class="row">
                     <div class="col s12">
                         <div id="header">
+                            <div id="header-background"></div>
                             <div class="header-container">
                                 <h1 class="center-align" id="title">
                                     <div class="z-depth-3 code-block">&lt;Hello<span

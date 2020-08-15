@@ -9,3 +9,5 @@ requirements.txt
 Pipfile.lock
 old_requirements.txt
 .gcloudignore
+index.html
+static/css/materialize
