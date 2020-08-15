@@ -11,7 +11,7 @@ $(document).ready(function(){
     }
     $('body').attr('data-theme', modeAlternates[mode]);
     let modeLabelText = modeAlternates[mode].charAt(0).toUpperCase() + modeAlternates[mode].slice(1)
-    $('#mode').text(modeLabelText);
+    $('.mode').text(modeLabelText);
     // if($('body').attr('data-theme') == "dark"){
     //   $('body').attr('data-theme', 'light');
 
