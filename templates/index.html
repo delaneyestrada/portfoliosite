@@ -1,65 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <!-- <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">menu</i>
-        </a>
-        <ul>
-          <li><a href="#home" class="btn-floating"><i class="nav-icon material-icons">home</i></a></li>
-          <li><a href="#about" class="btn-floating"><i class="nav-icon material-icons">library_books</i></a></li>
-          <li><a href="#projects" class="btn-floating"><i class="nav-icon material-icons">code</i></a></li>
-          <li><a href="#contact" class="btn-floating"><i class="nav-icon material-icons">email</i></a></li>
-        </ul>
-      </div> -->
     <div class="row">
         <div class="col m1 z-depth-4" id="side-nav">
             <div class="nav-items center-align" id="nav-items">
                 <div class="nav-item-container">
-                <a href="#home">
-                    <li class="nav-item">
-                        <i class="nav-icon material-icons">home</i>
-                        <div class="nav-item-footer">HOME</div>
-                    </li>
-                </a>
-            </div>
-            <div class="nav-item-container">
-                <a href="#about">
-                    <li class="nav-item">
-                        <div class="nav-item-header"></div>
-                        <i class="nav-icon material-icons">library_books</i>
-                        <div class="nav-item-footer">ABOUT</div>
-                    </li>
-                </a>
-            </div>
-            <div class="nav-item-container">
-                <a href="#projects">
-                    <li class="nav-item">
-                        <i class="nav-icon material-icons">code</i>
-                        <div class="nav-item-footer">PROJECTS</div>
-                    </li>
-                </a>
-            </div>
-            <div class="nav-item-container">
-                <a href="#contact">
-                    <li class="nav-item">
-                        <i class="nav-icon material-icons">email</i>
-                        <div class="nav-item-footer">CONTACT</div>
-                    </li>
-                </a>
-            </div>
+                    <a href="#home">
+                        <li class="nav-item">
+                            <i class="nav-icon material-icons">home</i>
+                            <div class="nav-item-footer">HOME</div>
+                        </li>
+                    </a>
+                </div>
+                <div class="nav-item-container">
+                    <a href="#projects">
+                        <li class="nav-item">
+                            <i class="nav-icon material-icons">code</i>
+                            <div class="nav-item-footer">MY WORK</div>
+                        </li>
+                    </a>
+                </div>
+                <div class="nav-item-container">
+                    <a href="#about">
+                        <li class="nav-item">
+                            <div class="nav-item-header"></div>
+                            <i class="nav-icon material-icons">library_books</i>
+                            <div class="nav-item-footer">ABOUT</div>
+                        </li>
+                    </a>
+                </div>
+                <div class="nav-item-container">
+                    <a href="#contact">
+                        <li class="nav-item">
+                            <i class="nav-icon material-icons">email</i>
+                            <div class="nav-item-footer">CONTACT</div>
+                        </li>
+                    </a>
+                </div>
             </div>
 
             <div class="toggle-container" id="desktop-toggle-container">
                 <i class="fas fa-adjust"></i>
                 <div class="toggle">
-                <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
+                    <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
                 </div>
                 <small class="mode-label"><span class="mode">Light</span> Mode</small>
             </div>
         </div>
         <div class="z-depth-4" id="mobile-nav">
-            
+
             <div class="nav-items center-align" id="nav-items">
                 <a href="#home">
                     <li class="nav-item">
@@ -95,173 +84,233 @@
                     <div class="col s12">
                         <div id="header">
                             <div id="header-background"></div>
-                            <div class="z-depth-3 code-block">&lt;Hello<span
-                                class="code-block-slash">/</span>&gt;<span
-                                class="code-block-cursor">|</span></div>
+                            <div class="z-depth-3 code-block">&lt;Hello<span class="code-block-slash">/</span>&gt;<span
+                                    class="code-block-cursor">|</span></div>
                             <div class="header-container">
-                                
+
                                 <h1 class="center-align" id="title">
                                     My name is Dillon Estrada
                                 </h1>
                                 <h4 class="center-align" id="subtitle">This is my web development portfolio</h4>
                                 <h6 class="center-align" id="music-site"><em><a href="#">Click here for my music
                                             website</a></em></h6>
-                                            <div class="toggle-container" id="mobile-toggle-container">
-                                                <i class="fas fa-adjust"></i>
-                                                <div class="toggle">
-                                                <input type="checkbox" id="switch2" name="theme" /><label for="switch2">Toggle</label>
-                                                </div>
-                                                <small class="mode-label"><span class="mode">Light</span> Mode</small>
-                                            </div>
+                                <div class="toggle-container" id="mobile-toggle-container">
+                                    <i class="fas fa-adjust"></i>
+                                    <div class="toggle">
+                                        <input type="checkbox" id="switch2" name="theme" /><label
+                                            for="switch2">Toggle</label>
+                                    </div>
+                                    <small class="mode-label"><span class="mode">Light</span> Mode</small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="scrollspy" id="about">
-
-                <h3 id="about-header" class="center-align section-header">ABOUT</h3>
-
- 
-
-                        <div class="card center-align" id="bio-card">
-                            <div class="card-content">
-                                <span class="card-title">Who I Am</span>
-                                <p style="margin-bottom:5px;">I am a full-stack web developer based in Austin, Texas with a love for creating
-                                    websites and apps that are streamlined to reach a goal.</p>
-                                <p>Also being a professional musician, I am aware of the importance of tools that don't get in
-                                    the way of your process; and that is what I hope to provide.</p>
-                            </div>
-                        </div>
-                    
-
-                        <div class="card center-align" id="offerings-card">
-                            <div class="card-content">
-                                <span class="card-title">What I Offer</span>
-                                <ul>
-                                    <div class="offering">
-                                        <div class="offering-icon-container">
-                                        <i class="offering-icon fas fa-tachometer-alt"></i>
-                                    </div>
-                                    <li class="offering-header">Fast</li>
-                                    <li><small>Fast load times and lag free interaction, my highest priority.</small></li>
-                                </div>
-                                    <div class="offering">
-                                        <i class="offering-icon fas fa-mobile-alt"></i>
-                                    <li class="offering-header">Responsive</li>
-                                    <li><small>My layouts will work on any device, big or small.</small></li>
-                                    </div>
-                                    <div class="offering">
-                                    
-                                    <i class="offering-icon fas fa-cloud-download-alt"></i>
-                                    <li class="offering-header">Dynamic</li>
-                                    <li><small>Websites don't have to be static, I love making pages come to life. </small></li>
-                                </div>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="" id="social-container">
-                            <div class="social-header center-align">SOCIAL LINKS</div>
-                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://github.com/dillonestrada"><i class="fa fa-github left"></i>Github</a>
-                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://www.linkedin.com/in/dillonestrada/"><i class="fab fa-linkedin-in left"></i>LinkedIn</a>
-                            <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank” href="https://www.instagram.com/dillon_estrada/"><i class="fab fa-instagram left"></i>Instagram</a>
-                        </div>
-               
-
             </section>
 
             <section class="scrollspy" id="projects">
-                <h3 id="project-header" class="center-align section-header">PROJECTS</h3>
-                        
-                            <div id="projects-container">
-                                <div class="img-container">
-                                    <img class="card-img responsive-img" alt="project 1" src="https://via.placeholder.com/320x180/A0A0A0/808080?text=There's"/>
-                                    <div class="overlay">
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
-                                    </div>
-                                </div>
-                            
-                                <div class="img-container">
-                                    <img class="card-img responsive-img" alt="project 2" src="https://via.placeholder.com/320x180/C0C0C0/808080?text=nothing"/>
-                                    <div class="overlay">
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
-                                    </div>
-                                </div>
-                        
-                        
-                                <div class="img-container">
-                                    <img class="card-img responsive-img" alt="project 3" src="https://via.placeholder.com/320x180/F0F0F0/808080?text=here"/>
-                                    <div class="overlay">
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
-                                    </div>
-                                </div>
-                            
-                                
-                                <div class="img-container">
-                                    <img class="card-img responsive-img" alt="project 4" src="https://via.placeholder.com/320x180/F5F5F5/808080?text=:("/>
-                                    <div class="overlay">
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
-                                        <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
-                                    </div>
-                                </div>
-                            </div>
-                                
+                <h3 id="project-header" class="center-align section-header">My Work</h3>
 
-                                <div class="card" id="projects-card">
-                                    <div class="card-content">
-                                        <span class="card-title"><em>Info</em></span>
-                                        <p>As you can probably tell, there are currently no projects here. That means I'm in need of sites to feature. Contact me using the form down below and give me something to show off!</p>
-                                    </div>
-                                </div>
-                        
-                        
 
-                    
-            </section>
+                <div class="project" id="project1">
+                    <!-- <div class="project-title">My Project</div> -->
 
-            <section class="scrollspy" id="contact">
-                <h3 class="center-align section-header">CONTACT</h3>
-                <h5 class="center-align content-subtitle">I would love to work with you. Get in touch through this form or any of my social media accounts and I will get back to you as soon as possible!</h5>
-                        
-            <div class="row">
-                <form class="col m8 offset-m2 s12" action="/contact" method="post">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="name" name="name" type="text">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="email" name="email" type="email" class="form-input">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                          <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                          <label for="message">Message</label>
+                    <div class="img-container">
+                        <img class="card-img img1" alt="project 1"
+                            src="https://via.placeholder.com/320x180/A0A0A0/808080?text=There's" />
+                        <img class="card-img img2" alt="project 1"
+                            src="https://via.placeholder.com/560x315/A0A0A0/808080?text=There's" />
+                        <!-- <div class="overlay">
+                            <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                            <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                        </div> -->
+                    </div>
+                    <div class="project-details">
+                        <div class="project-capacity">Development</div>
+                        <div class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Asperiores aliquid facilis reprehenderit itaque similique provident!</div>
+                        <div class="project-buttons">
+                            <div class="btn btn-live" href="#">Live Site</div>
+                            <div class="btn btn-source" href="#">Source Code</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col m12">
-                         <p class="right-align"><button class="btn btn-large waves-effect waves-light" type="submit" name="action">Send Message</button></p>
+                </div>
+                <div class="project" id="project2">
+                    <!-- <div class="project-title">My Project</div> -->
+
+                    <div class="img-container">
+                        <img class="card-img img1" alt="project 2"
+                            src="https://via.placeholder.com/320x180/C0C0C0/808080?text=nothing" />
+                        <img class="card-img img2" alt="project 2"
+                            src="https://via.placeholder.com/560x315/C0C0C0/808080?text=nothing" />
+                        <!-- <div class="overlay">
+                            <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                            <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                        </div> -->
+                    </div>
+                    <div class="project-details">
+                        <div class="project-capacity">Design</div>
+                        <div class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Asperiores aliquid facilis reprehenderit itaque similique provident!</div>
+                        <div class="project-buttons">
+                            <div class="btn btn-live" href="#">Live Site</div>
+                            <div class="btn btn-source" href="#">Source Code</div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <footer>
-                <div class="center-footer">
-                <div class="logo center-align" id="nav-logo">Dillon Estrada</div>
-                <div id="footer-copyright" class="center-align">&#169;Copyright Dillon Estrada 2020.</div>
-                </footer>
+                </div>
 
-            </footer>
+                <div class="project" id="project3">
+                    <!-- <div class="project-title">My Project</div> -->
+
+                    <div class="img-container">
+                        <img class="card-img img1" alt="project 3"
+                            src="https://via.placeholder.com/320x180/F0F0F0/808080?text=here" />
+                        <img class="card-img img2" alt="project 3"
+                            src="https://via.placeholder.com/560x315/F0F0F0/808080?text=here" />
+                        <!-- <div class="overlay">
+                            <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                            <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                        </div> -->
+                    </div>
+                    <div class="project-details">
+                        <div class="project-capacity">Custom Shopify Theme</div>
+                        <div class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Asperiores aliquid facilis reprehenderit itaque similique provident!</div>
+                        <div class="project-buttons">
+                            <div class="btn btn-live" href="#">Live Site</div>
+                            <div class="btn btn-source" href="#">Source Code</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" id="project4">
+                    <!-- <div class="project-title">My Project</div> -->
+
+                    <div class="img-container">
+                        <img class="card-img img1" alt="project 4"
+                            src="https://via.placeholder.com/320x180/F5F5F5/808080?text=:(" />
+                        <img class="card-img img2" alt="project 4"
+                            src="https://via.placeholder.com/560x315/F5F5F5/808080?text=:(" />
+                        <!-- <div class="overlay">
+                            <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
+                            <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
+                        </div> -->
+                    </div>
+                    <div class="project-details">
+                        <div class="project-capacity">Back-end</div>
+                        <div class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Asperiores aliquid facilis reprehenderit itaque similique provident!</div>
+                        <div class="project-buttons">
+                            <div class="btn btn-live" href="#">Live Site</div>
+                            <div class="btn btn-source" href="#">Source Code</div>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <section class="scrollspy" id="about">
+
+                <h3 id="about-header" class="center-align section-header">About Me</h3>
+
+
+
+                <div class="card center-align" id="bio-card">
+                    <div class="card-content">
+                        <span class="card-title">Who I Am</span>
+                        <p style="margin-bottom:5px;">I am a full-stack web developer based in Austin, Texas with a love
+                            for creating
+                            websites and apps that are streamlined to reach a goal.</p>
+                        <p>Also being a professional musician, I am aware of the importance of tools that don't get in
+                            the way of your process; and that is what I hope to provide.</p>
+                    </div>
+                </div>
+
+
+                <div class="card center-align" id="offerings-card">
+                    <div class="card-content">
+                        <span class="card-title">My Creations Are</span>
+                        <ul id="offerings">
+                            <div class="offering">
+                                <div class="offering-icon-container">
+                                    <i class="offering-icon fas fa-tachometer-alt"></i>
+                                </div>
+                                <li class="offering-header">Fast</li>
+                                <li><small>Fast load times and lag free interaction, my highest priority.</small></li>
+                            </div>
+                            <div class="offering">
+                                <i class="offering-icon fas fa-mobile-alt"></i>
+                                <li class="offering-header">Responsive</li>
+                                <li><small>My layouts will work on any device, big or small.</small></li>
+                            </div>
+                            <div class="offering">
+
+                                <i class="offering-icon fas fa-cloud-download-alt"></i>
+                                <li class="offering-header">Dynamic</li>
+                                <li><small>Websites don't have to be static, I love making pages come to life. </small>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="" id="social-container">
+                    <div class="social-header center-align">SOCIAL LINKS</div>
+                    <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank”
+                        href="https://github.com/dillonestrada"><i class="fa fa-github left"></i>Github</a>
+                    <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank”
+                        href="https://www.linkedin.com/in/dillonestrada/"><i
+                            class="fab fa-linkedin-in left"></i>LinkedIn</a>
+                    <a class="waves-effect waves-light btn btn-large btn-floating" target=”_blank”
+                        href="https://www.instagram.com/dillon_estrada/"><i
+                            class="fab fa-instagram left"></i>Instagram</a>
+                </div>
+
+
+            </section>
+
+
+
+            <section class="scrollspy" id="contact">
+                <h3 class="center-align section-header">Contact Me</h3>
+                <h5 class="center-align content-subtitle">I would love to work with you. Get in touch through this form
+                    or any of my social media accounts and I will get back to you as soon as possible!</h5>
+
+                <div class="row">
+                    <form class="col m8 offset-m2 s12" action="/contact" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="name" name="name" type="text">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="email" name="email" type="email" class="form-input">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m12">
+                                <p class="right-align"><button class="btn btn-large waves-effect waves-light"
+                                        type="submit" name="action">Send Message</button></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <footer>
+                    <div class="center-footer">
+                        <div class="logo center-align" id="nav-logo">Dillon Estrada</div>
+                        <div id="footer-copyright" class="center-align">&#169;Copyright Dillon Estrada 2020.</div>
+                </footer>
+
+                </footer>
         </div>
     </div>
+    </section>
+</div>
+</div>
 </div>
 
 {% endblock %}
