@@ -26,6 +26,19 @@ $ratio-percent: 56.25%;
     --color-page-background-offset: #{$white};
     --color-text: #{$black};
     --color-text-offset: #{lighten($black, 10%)};
+    }
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--color-page-background);
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $primary-dark;
 }
 
 [data-theme="dark"]{
@@ -61,12 +74,13 @@ body {
     vertical-align: baseline;
     background: transparent;
     font-family: $roboto;
-    max-width: 100%;
+    max-width: 100% !important;
 }
 html, body {
     height: 100%;
     min-height: 100%;
 }
+/* ANIMATIONS */
 @keyframes show-hide {
     0% {
         opacity: 0%;
@@ -94,6 +108,30 @@ html, body {
         opacity: 0;
     }
 }
+
+@keyframes full-circle {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes color-shift {
+    0% {
+        color: $secondary-dark
+    }
+    50% {
+        color: $secondary-light
+    }
+    100% {
+        color: $secondary-dark
+    }
+}
+
+
+/* RESPONSIVE CONTENT */
 @media (max-width: 400px){
     #content > section#about {
         display: grid;
@@ -124,7 +162,8 @@ html, body {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-content: center;
+        align-items: center;
+        height: 100%;
         .nav-item {
             margin: auto 2em;
             font-size: .8em;
@@ -144,7 +183,7 @@ html, body {
         margin-right: auto;
         height: auto;
         display: grid;
-        grid-template-columns: auto 320px auto;
+        grid-template-columns: auto 1fr auto;
         grid-template-rows: auto auto 3fr;
         grid-template-areas: 
         ". header ."
@@ -153,6 +192,10 @@ html, body {
         ;
         align-content: start;
         padding-bottom: 2em;
+    }
+    #projects-container > .img-container {
+        max-width: 320px;
+        width: auto;
     }
     .img-container .overlay {
         display: flex;
@@ -265,6 +308,11 @@ html, body {
         background-color: rgba(0, 0, 0, 0.445);
         opacity: 1;
     }
+    #desktop-toggle-container .mode-label {
+        display: flex;
+        flex-direction: column;
+        font-size: .8em;
+    }
     
 }
 
@@ -299,6 +347,11 @@ html, body {
     .fixed-action-btn {
         display: none;
     }
+    #desktop-toggle-container .mode-label {
+        font-size: .8em;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (min-width: 936px) {
@@ -330,12 +383,12 @@ html, body {
     .fixed-action-btn {
         display: none;
     }
+    .mode-label {
+        font-size: .9em !important; 
+    }
 }
 
 /* TAGS */
-html {
-    scroll-snap-type: y proximity;
-}
 
 small {
     font-size: 90%;
@@ -373,9 +426,15 @@ input:focus+label, textarea.materialize-textarea:focus+label {
 // }
 
 /* CONTENT GLOBAL */
-.row {
+.row, .col {
     width: 100%;
+    padding: 0 !important;
 }
+
+#home .row {
+    margin: 0 !important;
+}
+
 .logo {
     font-family: "Hoodson";
     color: $primary-light;
@@ -419,10 +478,6 @@ section:nth-of-type(odd) {
     width: 100%;
 }
 
-.col {
-    overflow: hidden;
-}
-
 .card-title {
     font-family: 'Roboto', sans-serif;
     font-weight: 600 !important;
@@ -436,7 +491,6 @@ section:nth-of-type(odd) {
 
 /* SECTIONS */
 section {
-    scroll-snap-align: start;
     min-height: 50vh;
     h3 {
         font-family: $pathway-gothic;
@@ -481,10 +535,12 @@ section#home {
 
 #subtitle {
     color: var(--color-text);
+    font-size: 5vw;
 }
 
 #music-site {
     color: $secondary-light;
+    font-size: 3vw;
 }
 
 .code-block {
@@ -492,7 +548,7 @@ section#home {
     color: $primary-light;
     display: inline-block;
     padding: 0 20px;
-    font-size: 4em;
+    font-size: 10vw;
     margin: 0 auto;
 }
 
@@ -520,9 +576,32 @@ section#home {
 
 h1#title {
     margin-top: 10px;
+    font-size: 7vw;
 }
 
 /* NAV */
+#side-nav > #nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    margin-bottom: 2em;
+    
+    .nav-item-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-item {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
 #nav-items {
     width: 100%;
     align-self: center;
@@ -533,7 +612,7 @@ h1#title {
     transition-duration: .2s;
 }
 
-#nav-items>a:hover {
+#nav-items a:hover {
     color: $primary;
 }
 
@@ -558,17 +637,17 @@ h1#title {
     font-size: 1.5em;
     width: 100%;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .nav-item {
     list-style: none;
-    margin-top: 4em;
-    margin-bottom: 4em;
-    margin-left: auto;
-    margin-right: auto;
+    // padding-left: 100%;
+    // padding-right: 100%;
     pointer-events: none;
-    max-width: 70%;
     width: auto;
+    margin-bottom: 2em;
+    margin-top: 2em;
     
 }
 
@@ -604,6 +683,14 @@ h1#title {
     i {
         color: $primary-dark;
         font-size: 1.2em;
+        transition:transform .2s linear;   
+        -moz-transition:transform .2s linear;   
+        -webkit-transition:transform .2s linear;  
+        transform: rotate(180deg);
+    }
+
+    i.rotate {
+        transform: rotate(0deg)
     }
 }
     #desktop-toggle-container {
@@ -635,6 +722,11 @@ h1#title {
         label:active:after {
             width: 45px;
         };
+        margin-top: 0;
+        margin-bottom: .5em;
+        justify-self: flex-end;
+        position: absolute;
+        bottom: 0;
 
     }
     #mobile-toggle-container {
@@ -784,6 +876,10 @@ section#about {
     margin: 0;
 }
 
+#social-container .btn:hover {
+    animation: full-circle 1.1s ease-out;
+}
+
 #social-container > .social-header {
     color: $primary-light;
     font-family: $pathway-gothic;
@@ -802,6 +898,7 @@ section#about {
     font-size: 3em;
     // padding-top: .5em;
     color: $secondary-light;
+    animation: color-shift 10s infinite;
 }
 // .offering-icon-container {
 //     background-color: $tertiary;
@@ -833,6 +930,9 @@ section#about {
 }
 
 /* FOOTER */
+footer {
+    margin-top: 10%;
+}
 
 
 /* TEMP */
