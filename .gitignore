@@ -12,3 +12,4 @@ old_requirements.txt
 index.html
 static/css/materialize
 *.code-workspace
+.vscode/
