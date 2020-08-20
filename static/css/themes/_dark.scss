@@ -1,0 +1,12 @@
+[data-theme="dark"] {
+    --color-page-background: #{$dark};
+    --color-page-background-offset: #{darken($dark, 2%)};
+    --card-background: #{darken($dark, 4%)};
+    --color-text: #{$white};
+    --color-text-offset: #{darken($white, 20%)};
+
+    #header-background {
+        filter: invert(0.8);
+        -webkit-filter: invert(0.8);
+    }
+}

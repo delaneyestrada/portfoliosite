@@ -1,0 +1,29 @@
+$white: #f4f4f4;
+$black: #0e1111;
+$dark: #363636;
+$primary: #fca311ff;
+$primary-light: #fdb53f;
+$primary-dark: #d78703;
+$secondary: #116afc;
+$secondary-dark: #0353d7;
+$secondary-light: #4f91fd;
+
+$tertiary: #596983;
+$tertiary-light: #d9e7ff;
+$tertiary-dark: #131922;
+
+$montserrat: "Montserrat", sans-serif;
+
+$mobile-nav-height: 10vh;
+
+// $num-projects: 4;
+$ratio-percent: 56.25%;
+
+:root {
+    --color-page-background: #{lighten($white, 5%)};
+    --color-page-background-offset: #{$white};
+    --color-text: #{$black};
+    --color-text-offset: #{lighten($black, 10%)};
+    --project-width: 560px;
+    --project-height: 315px;
+}

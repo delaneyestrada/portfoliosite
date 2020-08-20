@@ -1,0 +1,15 @@
+a.btn,
+.btn,
+.cta-btn:focus,
+.btn:focus,
+.btn-large:focus,
+.btn-small:focus,
+.btn-floating:focus {
+    background-color: $secondary;
+}
+
+.btn:hover,
+a.cta-btn:hover {
+    background-color: $primary-dark;
+    color: $black;
+}

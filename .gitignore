@@ -13,3 +13,4 @@ index.html
 static/css/materialize
 *.code-workspace
 .vscode/
+static/css/dist/materialize.min.css

@@ -1,0 +1,154 @@
+/* ANIMATIONS */
+@-webkit-keyframes show-hide {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes show-hide {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@-webkit-keyframes show-hide-toggle {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    50.001% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show-hide-toggle {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    50.001% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes full-circle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes full-circle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes color-shift {
+    0% {
+        color: $secondary-dark;
+    }
+
+    50% {
+        color: $secondary-light;
+    }
+
+    100% {
+        color: $secondary-dark;
+    }
+}
+
+@keyframes color-shift {
+    0% {
+        color: $secondary-dark;
+    }
+
+    50% {
+        color: $secondary-light;
+    }
+
+    100% {
+        color: $secondary-dark;
+    }
+}
+
+// @-webkit-keyframes fade-in {
+//     from {
+//         opacity: 0;
+//     }
+
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes fade-in {
+//     from {
+//         opacity: 0;
+//     }
+
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+@-webkit-keyframes slide-in {
+    from {
+        transform: translateX(-180px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-180px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+// .fade-in {
+//     -webkit-animation: fade-in 1s ease-in .2s forwards;
+//     animation: fade-in 1s ease-in .2s forwards;
+// }
+
+.slide-in {
+    -webkit-animation: slide-in 1s ease-in forwards;
+    animation: slide-in 1s ease-in forwards;
+}
