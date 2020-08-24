@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="error-page" class="container">
+    <div class="error-message-card">
+        <h2>{{ code }} - {{ message }}</h2>
+        <a class="error-home-link" href="{{ url_for('home') }}">Go back to dillonestrada.com</a>
+    </div>
+</div>
+{% endblock %}

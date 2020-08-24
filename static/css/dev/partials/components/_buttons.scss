@@ -1,0 +1,46 @@
+%button {
+    border-radius: 2rem;
+    padding: 0.7rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.button {
+    @extend %button;
+
+    &:hover {
+        background-color: $primary-dark;
+        color: $black;
+    }
+}
+
+.button-primary,
+.button-primary:focus {
+    background-color: $secondary;
+}
+
+.button-secondary,
+.button-secondary:focus {
+    background-color: lighten($secondary, 10%);
+}
+
+.button-large {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    line-height: 5rem;
+}
+
+.btn,
+.btn:focus {
+    background-color: $secondary;
+}
+
+.btn:hover {
+    background-color: $primary-dark;
+    color: $black;
+}
+
+.btn {
+    font-weight: 600;
+}

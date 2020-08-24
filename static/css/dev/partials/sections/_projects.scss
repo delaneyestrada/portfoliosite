@@ -1,7 +1,7 @@
 /* PROJECT SECTION */
 
 .project-title {
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -10,7 +10,7 @@
 
     .project-capacity {
         display: inline-block;
-        font-size: 0.8em;
+        font-size: 0.8rem;
         padding: 5px;
         border-radius: 10px;
         border: $primary-light 1px solid;
@@ -21,11 +21,11 @@
         margin: 1em 0;
 
         .btn {
-            font-size: 1.2em;
+            font-size: 1.2rem;
         }
 
         .btn-live {
-            margin-right: 0.5em;
+            margin-right: 0.5rem;
         }
 
         .btn-source {

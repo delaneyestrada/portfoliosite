@@ -25,3 +25,4 @@ env/
 .vscode/
 Pipfile
 Pipfile.lock
+static/css/dev/

@@ -1,12 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for
 from flask_mail import Message, Mail
-from creds import gmail
+from creds import gmail, secret_key
  
 mail = Mail()
  
 app = Flask(__name__)
  
-app.secret_key = 'development key'
+app.secret_key = secret_key
  
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
@@ -18,6 +18,23 @@ mail.init_app(app)
 
 app.debug = True
 
+@app.errorhandler(Exception)
+def page_not_found(e):
+    code = 500
+    message = "Something Went Wrong"
+    error = str(e)
+    print(error)
+    if '404' in error:
+        message = "Page Not Found"
+        code = 404
+    elif '403' in error:
+        message = "Forbidden"
+        code = 403
+    elif '500' in error:
+        message = "Internal Server Error"
+        code = 500
+
+    return render_template('sections/error.html', message=message, code=str(code)), code
 
 @app.route('/')
 def home():
@@ -34,7 +51,7 @@ def contact():
     email = request.form.get('email')
     message = request.form.get('message')
 
-    msg = Message("Email from contact form on dillonestrada.com", sender=gmail['email'], recipients=[gmail['email']])
+    msg = Message("Email from contact form on dillonestrada.com", sender=gmail['email'], recipients=[gmail['forward_email']])
     msg.html = f"<h1>Name: {name}</h1><h3>Email: {email}</h3><p>{message}</p>"
 
     mail.send(msg)

@@ -2,7 +2,11 @@
 <html lang="en" class="light">
 
 <head>
+    {% if not error %}
     <title>Dillon Estrada - Dev Portfolio</title>
+    {% else %}
+    <title>Dillon Estrada - {{ error }}</title>
+    {% endif %}
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap"

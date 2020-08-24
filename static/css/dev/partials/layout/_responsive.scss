@@ -1,0 +1,177 @@
+$breakpoint-small: 420px;
+$breakpoint-med-small: 600px;
+$breakpoint-med: 1175px;
+$breakpoint-lg: 1800px;
+$breakpoint-xl: 2400px;
+
+:root {
+    @media (min-width: $breakpoint-xl) {
+        --project-width: 1020px;
+    }
+    @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+        --project-width: 560px;
+    }
+}
+
+html {
+    @media (min-width: $breakpoint-xl) {
+        font-size: 140%;
+        .img1,
+        .img2 {
+            display: none;
+        }
+        #projects #projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(1020px, 1fr));
+            grid-gap: 1rem;
+
+            .project {
+                justify-self: center;
+            }
+            .project-details .project-buttons .btn {
+                font-size: 0.5rem;
+            }
+        }
+    }
+    @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+        font-size: 110%;
+        .img1,
+        .img3 {
+            display: none;
+        }
+        #projects #projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+            grid-gap: 1rem;
+
+            .project {
+                justify-self: center;
+            }
+            .project-details .project-buttons .btn {
+                font-size: 0.8rem;
+            }
+        }
+    }
+    @media (max-width: $breakpoint-lg) {
+        .img2,
+        .img3 {
+            display: none;
+        }
+
+        #projects #projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 1rem;
+
+            .project {
+                justify-self: center;
+            }
+            .project-details .project-buttons .btn {
+                font-size: 0.7rem;
+            }
+        }
+    }
+    @media (min-width: $breakpoint-med) and (max-width: $breakpoint-lg) {
+        font-size: 16px;
+    }
+    @media (min-width: $breakpoint-med-small) and (max-width: $breakpoint-med) {
+        font-size: 80%;
+    }
+    @media (max-width: $breakpoint-med) {
+        #offerings {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+
+            .offering {
+                width: 40vh;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-med-small) {
+        .nav-item-footer,
+        .mode-label {
+            display: none;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #mobile-toggle-container {
+            display: none;
+        }
+        section {
+            min-height: 100vh;
+        }
+        section#home,
+        section#home #header {
+            height: 100vh;
+        }
+        hr {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        font-size: 60%;
+
+        #title {
+            font-size: 1.2rem;
+        }
+        #subtitle {
+            font-size: 1.5rem;
+        }
+
+        section {
+            padding: 0.5rem 1rem;
+        }
+
+        .button-large {
+            padding: 1.2rem 2.4rem;
+            font-size: 1.2rem;
+        }
+
+        hr {
+            display: block;
+        }
+
+        .nav-item-footer,
+        .mode-label {
+            display: block;
+        }
+        #side-nav {
+            display: none;
+        }
+
+        section#home,
+        section#home #header {
+            height: 100vh - $mobile-nav-height;
+        }
+
+        .header-main {
+            margin-bottom: 10rem;
+            text-align: center;
+            .code-block {
+                margin: 0 !important;
+            }
+        }
+
+        section {
+            min-height: 100vh - $mobile-nav-height;
+        }
+
+        #mobile-nav {
+            display: flex;
+        }
+
+        #mobile-toggle-container {
+            position: absolute;
+            bottom: $mobile-nav-height + 5vh;
+        }
+
+        #contact {
+            margin-bottom: $mobile-nav-height;
+        }
+    }
+}

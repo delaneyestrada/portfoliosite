@@ -1,9 +1,18 @@
 /* ABOUT SECTION */
-
+#about {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#about-header {
+    position: absolute;
+    top: 0;
+}
 #about-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -12,28 +21,27 @@
 
     p {
         text-align: left;
-        font-size: 1.2em;
-        letter-spacing: 0.13em;
+        font-size: 1.2rem;
+        letter-spacing: 0.13rem;
     }
 
     p:first-of-type {
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 }
 
 #offering-section {
     width: 80%;
-    margin-top: 4em;
 
     .card-title {
-        font-size: 1.4em;
+        font-size: 1.4rem;
         font-weight: 700;
     }
 }
 
 .offering-header {
     font-weight: 700;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     justify-content: start;
 }
 
@@ -42,17 +50,18 @@
 }
 
 .offering-text {
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 .offering-icon {
-    font-size: 5em;
+    font-size: 5rem;
     color: $primary-light;
 }
 
 #bio-card {
-    width: 60%;
+    width: 90%;
     height: auto;
+    margin: 3rem 0;
 }
 
 #offerings-card {
@@ -64,5 +73,5 @@
     display: flex;
     height: 100%;
     justify-content: space-between;
-    margin-top: 3em;
+    margin-top: 3rem;
 }

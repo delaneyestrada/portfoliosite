@@ -1,0 +1,61 @@
+@import "partials/utilities";
+@import "partials/animations";
+
+@import "partials/base/reset";
+@import "partials/base/typography";
+@import "partials/base/global";
+
+@import "partials/layout/responsive";
+@import "partials/layout/navigation";
+@import "partials/layout/footer";
+@import "partials/layout/scrollbar";
+
+@import "partials/components/buttons";
+@import "partials/components/toggle";
+
+@import "partials/sections/home";
+@import "partials/sections/projects";
+@import "partials/sections/about";
+@import "partials/sections/contact";
+@import "partials/sections/error";
+
+@import "partials/themes/dark";
+
+#watermark {
+    display: none;
+}
+
+input:focus,
+textarea.materialize-textarea:focus {
+    border-bottom: 1px solid $primary-light !important;
+    box-shadow: 0 0 1px 0 $primary-light !important;
+    color: var(--color-text);
+}
+input,
+textarea.materialize-textarea {
+    color: var(--color-text);
+}
+
+input:focus + label,
+textarea.materialize-textarea:focus + label {
+    color: $primary-light !important;
+}
+
+.content-subtitle {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--color-page-background-offset);
+}
+
+#content {
+    padding: 0;
+}
+
+.card {
+    background-color: var(--card-background);
+    color: var(--color-text);
+}
