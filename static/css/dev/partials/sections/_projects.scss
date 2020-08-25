@@ -1,10 +1,4 @@
 /* PROJECT SECTION */
-
-.project-title {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 .project-details {
     width: var(--project-width);
 
@@ -39,6 +33,7 @@
 }
 
 .project {
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -47,15 +42,24 @@
 .project-card-row {
     margin-bottom: 0;
 }
-
-.card-img {
-    -o-object-fit: scale-down;
-    object-fit: scale-down;
-}
-
 .img-container {
     overflow: hidden;
     position: relative;
+    height: auto;
+
+    #music-site {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        .signature {
+            display: block;
+            color: $primary-light;
+            font-family: "Hoodson";
+            margin: 0;
+        }
+        .sub-signature {
+            color: $white !important;
+        }
+    }
 }
 
 .overlay {
@@ -65,23 +69,13 @@
     z-index: 1;
     top: 0px;
     padding: 0;
-    transition: 0.1s;
     background-color: $tertiary-dark;
-    display: none;
-    opacity: 0;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.img-container:hover .overlay {
+.img-container .overlay {
     display: flex;
     background-color: rgba(0, 0, 0, 0.445);
-    -webkit-animation: show-hide 0.5s ease-in-out;
-    animation: show-hide 0.5s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-
-.overlay > .btn {
-    margin: 5px;
 }

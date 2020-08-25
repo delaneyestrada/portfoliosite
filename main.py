@@ -1,10 +1,14 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, Response, jsonify
 from flask_mail import Message, Mail
+import json
+from flask_cors import CORS
 from creds import gmail, secret_key
+
  
 mail = Mail()
  
 app = Flask(__name__)
+CORS(app)
  
 app.secret_key = secret_key
  
@@ -47,14 +51,30 @@ def home():
 
 @app.route('/contact', methods=['POST'])
 def contact():
-    name = request.form.get('name')
-    email = request.form.get('email')
-    message = request.form.get('message')
+    try:
+        music_req = request.args.get('music')
+        args = request.get_json()
+        print(args)
+        name = args['p_name']
+        email = args['p_email']
+        message = args['p_message']
 
-    msg = Message("Email from contact form on dillonestrada.com", sender=gmail['email'], recipients=[gmail['forward_email']])
+        msg = Message("Email from contact form on music.dillonestrada.com", sender=gmail['email'], recipients=[gmail['music_email']])
+    except:
+        try:
+            name = request.form.get('name')
+            email = request.form.get('email')
+            message = request.form.get('message')
+
+            msg = Message("Email from contact form on dillonestrada.com", sender=gmail['email'], recipients=[gmail['forward_email']])
+        except:
+            return "Uh oh..."
+
     msg.html = f"<h1>Name: {name}</h1><h3>Email: {email}</h3><p>{message}</p>"
 
     mail.send(msg)
+    if(music_req):
+        return Response(status=200)
     success = True
     return redirect(url_for('.home', success=success))
 

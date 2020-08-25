@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("body").attr("data-theme", mode);
 
     $(".toggle > input").on("click", () => {
+        mode = window.localStorage.getItem("data-theme");
         let modeAlternates = {
             dark: "light",
             light: "dark",

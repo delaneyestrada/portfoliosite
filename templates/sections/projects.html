@@ -6,24 +6,27 @@
 
         <div class="img-container">
             <img class="card-img img1" alt="project 1"
-                src="https://via.placeholder.com/300x168/A0A0A0/808080?text=There's" />
+                src="{{ url_for('static', filename='img/music-site1020-300px.png') }}" />
             <img class="card-img img2" alt="project 1"
-                src="https://via.placeholder.com/560x315/A0A0A0/808080?text=There's" />
+                src="{{ url_for('static', filename='img/music-site1020-560px.png') }}" />
             <img class="card-img img3" alt="project 1"
-                src="https://via.placeholder.com/1020x630/A0A0A0/808080?text=There's" />
+                src="{{ url_for('static', filename='img/music-site1020.png') }}" />
 
-            <!-- <div class="overlay">
-                            <a class="waves-effect waves-light btn btn-small" href="#">Live Demo</a>
-                            <a class="waves-effect waves-light btn btn-small" href="#">Source Code</a>
-                        </div> -->
+            <div class="overlay">
+                <div class="site-logo center-align" id="music-site"><span class="signature">Dillon Estrada</span><span
+                        class="sub-signature">MUSIC</span>
+                </div>
+            </div>
         </div>
         <div class="project-details">
-            <div class="project-capacity">Development</div>
-            <div class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores aliquid facilis reprehenderit itaque similique provident!</div>
+            <div class="project-capacity">Template Customization</div>
+            <div class="project-description">I created my music portfolio website as an example of what can be done with
+                template customization.</div>
             <div class="project-buttons">
-                <div class="btn btn-live" href="#">Live Site</div>
-                <div class="btn btn-source" href="#">Source Code</div>
+                <a class="btn btn-live" href="#">Live Site<a>
+                        <a class="btn btn-source" href="https://github.com/dillonestrada/music-portfolio"
+                            target="_blank">
+                            Source Code</a>
             </div>
         </div>
     </div>
