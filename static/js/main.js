@@ -6,10 +6,11 @@ $(document).ready(function () {
     });
 
     // DARK MODE FUNCTIONALITY
-    let mode = window.localStorage.getItem("data-theme");
-    if (!mode) {
+
+    if (!window.localStorage.getItem("data-theme")) {
         window.localStorage.setItem("data-theme", $("body").attr("data-theme"));
     }
+    let mode = window.localStorage.getItem("data-theme");
     $("body").attr("data-theme", mode);
 
     $(".toggle > input").on("click", () => {

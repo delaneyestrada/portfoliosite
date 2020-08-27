@@ -1,0 +1,6 @@
+dispatch:
+    - url: "dillonestrada.com/*"
+      service: default
+
+    - url: "music.dillonestrada.com/*"
+      service: music
