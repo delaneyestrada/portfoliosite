@@ -12,12 +12,19 @@ $tertiary: #596983;
 $tertiary-light: #d9e7ff;
 $tertiary-dark: #131922;
 
-$montserrat: "Montserrat", sans-serif;
+$montserrat: "Montserrat",
+sans-serif;
 
 $mobile-nav-height: 10vh;
 
 // $num-projects: 4;
 $ratio-percent: 56.25%;
+
+$breakpoint-small: 420px;
+$breakpoint-med-small: 600px;
+$breakpoint-med: 1175px;
+$breakpoint-lg: 1800px;
+$breakpoint-xl: 2400px;
 
 :root {
     --color-page-background: #{lighten($white, 2%)};
@@ -25,4 +32,6 @@ $ratio-percent: 56.25%;
     --color-text: #{$black};
     --color-text-offset: #{lighten($black, 10%)};
     --project-width: 300px;
+    --project-height: 185px;
+
 }

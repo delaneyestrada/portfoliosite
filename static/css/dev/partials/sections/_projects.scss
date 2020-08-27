@@ -42,20 +42,26 @@
 .project-card-row {
     margin-bottom: 0;
 }
+
+
+
 .img-container {
     overflow: hidden;
     position: relative;
-    height: auto;
+    height: var(--project-height);
+    width: var(--project-width);
 
     #music-site {
         font-size: 2.4rem;
         line-height: 2.4rem;
+
         .signature {
             display: block;
             color: $primary-light;
             font-family: "Hoodson";
             margin: 0;
         }
+
         .sub-signature {
             color: $white !important;
         }

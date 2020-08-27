@@ -1,25 +1,40 @@
-$breakpoint-small: 420px;
-$breakpoint-med-small: 600px;
-$breakpoint-med: 1175px;
-$breakpoint-lg: 1800px;
-$breakpoint-xl: 2400px;
-
 :root {
     @media (min-width: $breakpoint-xl) {
         --project-width: 1020px;
+        --project-height: 630px;
     }
+
     @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
         --project-width: 560px;
+        --project-height: 346px;
     }
 }
 
 html {
     @media (min-width: $breakpoint-xl) {
         font-size: 140%;
+
+        #project1 .img-container {
+            background-image: url('../../img/music-site1020.png');
+        }
+
+        #project2 .img-container {
+            background-image: url('https://via.placeholder.com/1020x630/C0C0C0/808080?text=nothing');
+        }
+
+        #project3 .img-container {
+            background-image: url('https://via.placeholder.com/1020x630/C0C0C0/808080?text=here');
+        }
+
+        #project4 .img-container {
+            background-image: url('https://via.placeholder.com/1020x630/C0C0C0/808080?text=:(');
+        }
+
         .img1,
         .img2 {
             display: none;
         }
+
         #projects #projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(1020px, 1fr));
@@ -28,17 +43,36 @@ html {
             .project {
                 justify-self: center;
             }
+
             .project-details .project-buttons .btn {
                 font-size: 0.5rem;
             }
         }
     }
+
     @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
         font-size: 110%;
-        .img1,
-        .img3 {
-            display: none;
+
+        #project1 .img-container {
+            background-image: url('../../img/music-site1020-560px.png');
         }
+
+        #project2 .img-container {
+            background-image: url('https://via.placeholder.com/560x346/C0C0C0/808080?text=nothing');
+        }
+
+        #project3 .img-container {
+            background-image: url('https://via.placeholder.com/560x346/C0C0C0/808080?text=here');
+        }
+
+        #project4 .img-container {
+            background-image: url('https://via.placeholder.com/560x346/C0C0C0/808080?text=:(');
+        }
+
+
+
+
+
         #projects #projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
@@ -47,16 +81,31 @@ html {
             .project {
                 justify-self: center;
             }
+
             .project-details .project-buttons .btn {
                 font-size: 0.8rem;
             }
         }
     }
+
     @media (max-width: $breakpoint-lg) {
-        .img2,
-        .img3 {
-            display: none;
+        #project1 .img-container {
+            background-image: url('../../img/music-site1020-300px.png');
         }
+
+        #project2 .img-container {
+            background-image: url('https://via.placeholder.com/300x185/C0C0C0/808080?text=nothing');
+        }
+
+        #project3 .img-container {
+            background-image: url('https://via.placeholder.com/300x185/C0C0C0/808080?text=here');
+        }
+
+        #project4 .img-container {
+            background-image: url('https://via.placeholder.com/300x185/C0C0C0/808080?text=:(');
+        }
+
+
 
         #projects #projects-container {
             display: grid;
@@ -66,17 +115,21 @@ html {
             .project {
                 justify-self: center;
             }
+
             .project-details .project-buttons .btn {
                 font-size: 0.7rem;
             }
         }
     }
+
     @media (min-width: $breakpoint-med) and (max-width: $breakpoint-lg) {
         font-size: 16px;
     }
+
     @media (min-width: $breakpoint-med-small) and (max-width: $breakpoint-med) {
         font-size: 80%;
     }
+
     @media (max-width: $breakpoint-med) {
         #offerings {
             flex-direction: column;
@@ -90,7 +143,9 @@ html {
             }
         }
     }
+
     @media (min-width: $breakpoint-small) and (max-width: $breakpoint-med-small) {
+
         .nav-item-footer,
         .mode-label {
             display: none;
@@ -101,13 +156,16 @@ html {
         #mobile-toggle-container {
             display: none;
         }
+
         section {
             min-height: 100vh;
         }
+
         section#home,
         section#home #header {
             height: 100vh;
         }
+
         hr {
             display: none;
         }
@@ -119,6 +177,7 @@ html {
         #title {
             font-size: 1.2rem;
         }
+
         #subtitle {
             font-size: 1.5rem;
         }
@@ -140,6 +199,7 @@ html {
         .mode-label {
             display: block;
         }
+
         #side-nav {
             display: none;
         }
@@ -152,6 +212,7 @@ html {
         .header-main {
             margin-bottom: 10rem;
             text-align: center;
+
             .code-block {
                 margin: 0 !important;
             }
