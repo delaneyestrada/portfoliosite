@@ -78,5 +78,14 @@ def contact():
     success = True
     return redirect(url_for('.home', success=success))
 
+@app.route('/services', methods=['GET'])
+def prices():
+    try:
+        name = request.args.get('name')
+    except:
+        print("No name used for Services page request.")
+    
+    return render_template('services.html', name=name.capitalize())
+
 if __name__ == '__main__':
     app.run(port=8080)
