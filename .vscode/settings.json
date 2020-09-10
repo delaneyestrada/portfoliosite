@@ -1,9 +1,0 @@
-{
-    "python.pythonPath": "C:\\Users\\Dillon\\.virtualenvs\\personal-site-OtyP_mF6\\Scripts\\python.exe",
-    "liveSassCompile.settings.includeItems": ["static/css/dev/services.scss"],
-    "liveSassCompile.settings.formats": [{
-        "format": "compressed",
-        "extensionName": ".min.css",
-        "savePath": "/static/css/dist/"
-    }]
-}
