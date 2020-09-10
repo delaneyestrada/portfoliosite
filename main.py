@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template, redirect, url_for, Response, jsonify
 from flask_mail import Message, Mail
-import json
+import json, requests
 from flask_cors import CORS
-from creds import gmail, secret_key
+from creds import gmail, secret_key, recaptcha_secret_key
 
  
 mail = Mail()
@@ -54,10 +54,10 @@ def contact():
     try:
         music_req = request.args.get('music')
         args = request.get_json()
-        print(args)
         name = args['p_name']
         email = args['p_email']
         message = args['p_message']
+        recaptcha = args['g-recaptcha-response']
 
         msg = Message("Email from contact form on music.dillonestrada.com", sender=gmail['email'], recipients=[gmail['music_email']])
     except:
@@ -65,18 +65,25 @@ def contact():
             name = request.form.get('name')
             email = request.form.get('email')
             message = request.form.get('message')
+            recaptcha = request.form.get('g-recaptcha-response')
 
             msg = Message("Email from contact form on dillonestrada.com", sender=gmail['email'], recipients=[gmail['forward_email']])
         except:
             return "Uh oh..."
+    if(recaptcha):
+        print('captcha')
+        r = requests.post("https://www.google.com/recaptcha/api/siteverify", data={'secret': recaptcha_secret_key, 'response': recaptcha})
+        r_json = r.json()
+        if(r_json['success']):
+            msg.html = f"<h1>Name: {name}</h1><h3>Email: {email}</h3><p>{message}</p>"
 
-    msg.html = f"<h1>Name: {name}</h1><h3>Email: {email}</h3><p>{message}</p>"
-
-    mail.send(msg)
-    if(music_req):
-        return Response(status=200)
-    success = True
-    return redirect(url_for('.home', success=success))
+            mail.send(msg)
+            if(music_req):
+                return Response(status=200)
+            success = True
+            return redirect(url_for('.home', success=success))
+    
+    return redirect(url_for('.home'))
 
 @app.route('/services', methods=['GET'])
 def prices():

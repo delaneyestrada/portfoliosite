@@ -27,6 +27,17 @@ $(document).ready(function () {
         window.localStorage.setItem("data-theme", modeAlternates[mode]);
     });
 
+    $("#contact-submit").on("submit", (e) => {
+        var response = grecaptcha.getResponse();
+        console.log(response.length)
+        $('#contact-submit').submit(function (event) {
+            if (response.length == 0) {
+                event.preventDevault();
+                alert('Please validate with the reCAPTCHA')
+            }
+        })
+    })
+
     // let sections = document.querySelectorAll('section')
     // let observer = new IntersectionObserver((entries) => {
     //   entries.forEach((entry) => {
