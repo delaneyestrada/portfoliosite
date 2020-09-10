@@ -80,12 +80,14 @@ def contact():
 
 @app.route('/services', methods=['GET'])
 def prices():
-    try:
-        name = request.args.get('name')
-    except:
-        print("No name used for Services page request.")
+
+    name = request.args.get('name')
     
-    return render_template('services.html', name=name.capitalize())
+    if(name):
+        return render_template('services.html', name=name.capitalize())
+    else:
+        return render_template('services.html')
+    
 
 if __name__ == '__main__':
     app.run(port=8080)
